@@ -1,0 +1,54 @@
+# html lang
+language: en
+
+title: Soymilk
+author: Soymilk
+
+# main menu navigation
+menu:
+  Home:
+    path: /
+    icon: home
+  Archives:
+    path: /archives
+    icon: archive
+  About:
+    path: /about
+    icon: user-circle
+
+social:
+  github:
+    icon: fa-github-alt 
+    url: https://github.com/MRsoymilk
+  gmail:
+    icon: fa-envelope
+    url: mailto:codermrsoymilk@gmail.com
+
+highlight: monokai-sublime
+
+date:
+  format: dddd, MMMM Do YYYY, h:mm:ss a
+
+system: true
+
+show_count: false
+
+cmd_category: "ls -al"
+cmd_tag: "ls"
+
+# ChangYan
+changyan:
+  status: true
+  appid: "cyuGH4lBk"
+  appkey: "ae32d85e4ca99348209aedfd3ae01478"
+
+# LiveRe
+livere:
+  status: true
+  livere_data_uid: "MTAyMC80NjA4MS8yMjU5Mg=="
+
+# Valine
+valine:
+  status: false
+  appid: ""
+  appkey: ""

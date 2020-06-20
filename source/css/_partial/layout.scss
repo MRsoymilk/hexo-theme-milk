@@ -1,0 +1,139 @@
+.milk-header {
+  position: absolute;
+  top: 0;
+  height: $header_height;
+  width: 100%;
+
+  .header-nav {
+    display: block;
+    width: 100%;
+    background-color: $background_color;
+    height: inherit;
+  }
+
+  .nav-menu {
+    display: inline-block;
+    overflow: auto;
+    white-space: nowrap;
+    max-width: $header_menu_max_width - 1%;
+    height: inherit;
+
+    li {
+      display: inline-block;
+    }
+
+    li:hover {
+      background-color: #2e394a;
+    }
+
+    a {
+      color: #a8a8a8;
+      text-decoration: none;
+    }
+  }
+
+  .nav-date {
+    overflow: auto;
+    white-space: nowrap;
+    position: absolute;
+    max-width: $header_date_max_width - 1%;
+    left: $header_menu_max_width;
+    height: inherit;
+  }
+
+  .nav-system {
+    white-space: nowrap;
+    position: absolute;
+    left: $header_menu_max_width + $header_date_max_width;
+    overflow: auto;
+    max-width: $header_system_max_width - 1%;
+    height: inherit;
+  }
+
+  .nav-access {
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    max-width: $header_access_max_width;
+    height: inherit;
+  }
+}
+
+.milk-body {
+  position: absolute;
+  top: $milk_body_top;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+
+  .desktop-content {
+    background-color: $background_color;
+    position: absolute;
+    overflow-y: scroll;
+    height: 100%;
+    width: $content_width - 0.5%;
+
+    &:hover {
+      border: $win_hover_border_width $win_hover_border_style
+        $win_hover_border_color;
+    }
+
+    .post-table {
+      border: none;
+
+      .table-title {
+        font-weight: bold;
+      }
+      .table-linenum {
+        margin-top: 10px;
+      }
+      th {
+        border-bottom: 1px solid #a8a8a8;
+      }
+      th:first-child {
+        border-right: 1px solid #a8a8a8;
+      }
+
+      td {
+        color: $post_table_title_font_color;
+      }
+      td:first-child {
+        color: #a8a8a8;
+        border-right: 1px solid #a8a8a8;
+      }
+    }
+  }
+
+  .desktop-category {
+    background-color: $background_color;
+    position: absolute;
+    left: $content_width;
+    height: $category_height - 1%;
+    width: $category_width;
+    overflow-y: scroll;
+
+    &:hover {
+      border: $win_hover_border_width $win_hover_border_style
+        $win_hover_border_color;
+    }
+  }
+
+  .desktop-tag {
+    background-color: $background_color;
+    position: absolute;
+    left: $content_width;
+    top: $category_height;
+    height: $tag_height;
+    width: $tag_width;
+    overflow-y: scroll;
+
+    &:hover {
+      border: $win_hover_border_width $win_hover_border_style
+        $win_hover_border_color;
+    }
+
+    .list-cloud {
+      margin-top: 10px;
+    }
+  }
+}

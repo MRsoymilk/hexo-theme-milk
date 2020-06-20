@@ -1,0 +1,112 @@
+html,
+body {
+  font-family: $font_family;
+  font-size: $font_size !important;
+  cursor: url("/cursor/" + $cursor_normal), auto;
+  background-image: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  color: $font_color;
+}
+
+a:hover {
+  cursor: url("/cursor/" + $cursor_link), auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+
+  &:link {
+    color: $a_link_color;
+  }
+  &:visited {
+    color: $a_visited_color;
+  }
+  &:hover {
+    color: $a_hover_color;
+    text-decoration: underline;
+  }
+  &:active {
+    color: $a_active_color;
+  }
+}
+
+img {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+ol,
+ul,
+dl {
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin: 20px;
+  &::before {
+    font-size: 20px;
+    content: "h2. ";
+    color: $h_prompt_color;
+  }
+}
+
+h3 {
+  margin: 15px;
+  &::before {
+    font-size: 15px;
+    content: "h3. ";
+    color: $h_prompt_color;
+  }
+}
+
+h4 {
+  margin: 10px;
+  &::before {
+    font-size: 10px;
+    content: "h4. ";
+    color: $h_prompt_color;
+  }
+}
+
+h5 {
+  margin: 5px;
+  &:before {
+    font-size: 5px;
+    content: "h5. ";
+    color: $h_prompt_color;
+  }
+}
+
+h6 {
+  &::before {
+    font-size: 1px;
+    content: "h6. ";
+    color: $h_prompt_color;
+  }
+}
+
+code {
+  color: $line_code_color;
+  background-color: $line_code_background;
+  padding: 0 3px;
+  border: $line_code_border;
+  font-size: 95%;
+}
+
+blockquote {
+  text-align: center;
+  font-style: italic;
+  line-height: 2em;
+}

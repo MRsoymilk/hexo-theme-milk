@@ -1,0 +1,22 @@
+<div class="win">
+  <div id="category">
+    <div class="win-title">
+      <%= page.category %>
+    </div>
+    <div class="win-body">
+      <% page.posts.each(article => { %>
+      <div class="win-list">
+        <a href="<%=url_for(article.path)%>">
+          <%= article.title %>
+        </a>
+        <time datetime="<%=date_xml(article.date)%>">
+          <%=date(article.date)%>
+        </time>
+      </div>
+      <% }); %>
+      <div class="paginator">
+        <%- paginator() %>
+      </div>
+    </div>
+  </div>
+</div>

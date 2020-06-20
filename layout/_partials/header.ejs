@@ -1,0 +1,43 @@
+<%# nav %> 
+<% if (theme.menu) { %>
+  <nav class="header-nav">
+    <ul class="nav-menu">
+      <% for( var _menu in theme.menu) { %>
+        <li>
+          <i class="fa fa-<%- theme.menu[_menu].icon %>" aria-hidden="true"></i>
+          <a href="<%- url_for(theme.menu[_menu].path) %> "><%- _menu %></a>
+        </li>
+      <% } %>
+    </ul>
+    <%# date %> 
+    <% if (theme.date) { %>
+      <span class="nav-date">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <span id="date"></span>
+      </span>
+    <% } %> 
+    <%# system info %>
+    <% if(theme.system){ %> 
+      <span class="nav-system" id="nav-system"></span>
+    <% } %>
+    <%# more %> 
+    <span class="nav-access">
+      <i class="fa fa-universal-access" id="nav-access"></i>
+      <i class="fa fa-angle-down"></i>
+      <div class="dropdown-content" id="dropdown-content">
+        <ul class="social">
+          <% for(var _social in theme.social) { %>
+            <li>
+              <a href="<%- theme.social[_social].url %>">
+                <i class="fa <%- theme.social[_social].icon %>" aria-hidden="true"></i>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+        <ul>
+          <li><span>Power by <a href="https://hexo.io/">Hexo</a></span></li>
+        </ul>
+      </div>
+    </span>
+  </nav>
+<% } %>

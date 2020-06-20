@@ -1,0 +1,991 @@
+/* cyrillic */
+@font-face {
+  font-family: "Bad Script";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Bad Script Regular"), local("BadScript-Regular"),
+    url("/lib/font/BadScript_cyrillic.woff2") format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin */
+@font-face {
+  font-family: "Bad Script";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Bad Script Regular"), local("BadScript-Regular"),
+    url("/lib/font/BadScript_lation.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+// breadrumb
+@mixin inline {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+}
+ul.breadcrumbs {
+  margin: 25px 0px 0px;
+  padding: 0px;
+  font-size: 0px;
+  line-height: 0px;
+  @include inline;
+  height: 40px;
+
+  li {
+    position: relative;
+    margin: 0px 0px;
+    padding: 0px;
+    list-style: none;
+    list-style-image: none;
+    @include inline;
+    border-left: 1px solid $breadrumb_border_color;
+    transition: 0.3s ease;
+
+    &:last-child {
+      a {
+        color: $breadrumb_font_color;
+      }
+    }
+
+    &:last-child:hover {
+      &:before {
+        border-left: 10px solid $breadrumb_font_color;
+      }
+
+      a {
+        color: $breadrumb_background_color;
+        background-color: $breadrumb_font_color;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      right: -9px;
+      top: -1px;
+      z-index: 20;
+      border-left: 10px solid $breadrumb_background_color;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: -1px;
+      z-index: 10;
+      border-left: 10px solid $breadrumb_border_color;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
+    }
+
+    &.active {
+      a {
+        color: $breadrumb_font_color;
+        background-color: $breadrumb_background_color;
+      }
+    }
+
+    &.first {
+      border-left: none;
+
+      a {
+        font-size: 18px;
+        padding-left: 20px;
+        border-radius: 5px 0px 0px 5px;
+      }
+    }
+
+    &.last {
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+
+      a {
+        padding-right: 20px;
+        border-radius: 0px 40px 40px 0px;
+      }
+    }
+
+    a {
+      display: block;
+      font-size: 20px;
+      line-height: 40px;
+      color: #757575;
+      padding: 0px 15px 0px 25px;
+      text-decoration: none;
+      background-color: $breadrumb_background_color;
+      border: 1px solid $breadrumb_border_color;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+  }
+}
+
+// ascii
+// https://codepen.io/patrickhlauke/pen/azbYWZ
+ul.ascii,
+ul.ascii ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.ascii li {
+  margin: 0;
+  padding: 0;
+}
+
+/* level 1 */
+ul.ascii > li::before {
+  content: "";
+}
+
+/* level 2 */
+ul.ascii > li > ul > li::before {
+  content: "├──\00a0";
+}
+ul.ascii > li > ul > li:last-child::before {
+  content: "└──\00a0";
+}
+
+/* level 3 */
+ul.ascii > li > ul > li > ul > li::before {
+  content: "│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li > ul > li:last-child::before {
+  content: "│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li::before {
+  content: "\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0└──\00a0";
+}
+
+/* level 4 */
+ul.ascii > li > ul > li > ul > li > ul > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li > ul > li > ul > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li > ul > li:last-child > ul > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li > ul > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+
+/* level 5 */
+ul.ascii > li > ul > li > ul > li > ul > li > ul > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii > li > ul > li > ul > li > ul > li > ul > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+
+/* level 6 */
+ul.ascii > li > ul > li > ul > li > ul > li > ul > li > ul > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0│\00a0\00a0\00a0└──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0├──\00a0";
+}
+ul.ascii
+  > li
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child
+  > ul
+  > li:last-child::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0└──\00a0";
+}
+
+// css floder
+// https://github.com/jlizanab/FFolders
+.ffolder {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+.ffolder.small {
+  margin-top: 8px;
+  width: 88px;
+  height: 61px;
+  border-radius: 0px 6px 6px 6px;
+}
+
+.ffolder.medium {
+  margin-top: 16px;
+  width: 176px;
+  height: 122px;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.ffolder.big {
+  margin-top: 24px;
+  width: 264px;
+  height: 183px;
+  border-radius: 0px 14px 14px 14px;
+}
+
+.ffolder:before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.ffolder:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.ffolder.small:before {
+  top: -8px;
+  left: 0;
+  width: 32px;
+  height: 8px;
+  border-radius: 6px 0px 0px 0px;
+}
+
+.ffolder.small:after {
+  top: -16px;
+  left: 24px;
+  border: 8px solid transparent;
+}
+
+.ffolder.medium:before {
+  top: -16px;
+  left: 0;
+  width: 64px;
+  height: 16px;
+  border-radius: 10px 0px 0px 0px;
+}
+
+.ffolder.medium:after {
+  top: -32px;
+  left: 48px;
+  border: 16px solid transparent;
+}
+
+.ffolder.big:before {
+  top: -24px;
+  left: 0;
+  width: 96px;
+  height: 24px;
+  border-radius: 14px 0px 0px 0px;
+}
+
+.ffolder.big:after {
+  top: -48px;
+  left: 72px;
+  border: 24px solid transparent;
+}
+
+.ffolder span,
+.ffolder i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ffolder span {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+
+.ffolder.small i {
+  font-size: 37px;
+}
+.ffolder.medium i {
+  font-size: 53px;
+}
+.ffolder.big i {
+  font-size: 53px;
+}
+
+/*Available colors*/
+.ffolder.cyan {
+  background-color: #23cbf4;
+}
+.ffolder.cyan:before,
+.ffolder.cyan span {
+  background-color: #06baee;
+}
+.ffolder.cyan:after {
+  border-bottom-color: #06baee;
+}
+.ffolder.cyan span {
+  color: #ffffff;
+}
+.ffolder.cyan i {
+  color: #06baee;
+}
+
+.ffolder.yellow {
+  background-color: #ffbd00;
+}
+.ffolder.yellow:before,
+.ffolder.yellow span {
+  background-color: #f1a402;
+}
+.ffolder.yellow:after {
+  border-bottom-color: #f1a402;
+}
+.ffolder.yellow span {
+  color: #ffffff;
+}
+.ffolder.yellow i {
+  color: #f1a402;
+}
+
+.ffolder.pink {
+  background-color: #ff7f92;
+}
+.ffolder.pink:before,
+.ffolder.pink span {
+  background-color: #ff5e6e;
+}
+.ffolder.pink:after {
+  border-bottom-color: #ff5e6e;
+}
+.ffolder.pink span {
+  color: #ffffff;
+}
+.ffolder.pink i {
+  color: #ff5e6e;
+}
+
+.ffolder.green {
+  background-color: #62de82;
+}
+.ffolder.green:before,
+.ffolder.green span {
+  background-color: #66ca7f;
+}
+.ffolder.green:after {
+  border-bottom-color: #66ca7f;
+}
+.ffolder.green span {
+  background-color: transparent;
+}
+.ffolder.green i {
+  color: #54c170;
+}
+
+.ffolder.gray {
+  background-color: #829aa8;
+}
+.ffolder.gray:before,
+.ffolder.gray span {
+  background-color: #687f8c;
+}
+.ffolder.gray:after {
+  border-bottom-color: #687f8c;
+}
+.ffolder.gray span {
+  background-color: transparent;
+}
+.ffolder.gray i {
+  color: #687f8c;
+}
