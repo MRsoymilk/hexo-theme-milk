@@ -1,5 +1,5 @@
 $(() => {
-  // 使用fancybox显示图片
+  // use fancybox to show pictures
   $("img").each(function (index) {
     var title = ' data-caption="' + $(this).attr("alt") + '"';
     var source = ' href="' + $(this).attr("src") + '"';
@@ -18,6 +18,7 @@ $(() => {
     $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
   });
 
+  // toc style
   if (document.getElementById("post-content")) {
     _h2_list = document.getElementsByTagName("h2");
     _h3_list = document.getElementsByTagName("h3");
@@ -54,7 +55,7 @@ $(() => {
     });
   }
 
-  // system info
+  // header system info
   $(() => {
     var agent = navigator.userAgent;
     var os;
@@ -89,50 +90,52 @@ $(() => {
     );
   });
 
-  // time
+  // header time
   $(() => {
     setInterval(() => {
       var myDate = new Date();
-      var year = myDate.getFullYear(); //获取当前年
-      var mon = myDate.getMonth() + 1; //获取当前月
-      var date = myDate.getDate(); //获取当前日
+      var year = myDate.getFullYear(); // year
+      var mon = myDate.getMonth() + 1; // month
+      var date = myDate.getDate(); // date
       _week = myDate.getDay();
       var weeks = [
-        "星期日",
-        "星期一",
-        "星期二",
-        "星期三",
-        "星期四",
-        "星期五",
-        "星期六",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
       ];
-      var h = myDate.getHours(); //获取当前小时数(0-23)
-      var m = myDate.getMinutes(); //获取当前分钟数(0-59)
-      var s = myDate.getSeconds(); //获取当前秒
+      var h = myDate.getHours(); // hours(0-23)
+      var m = myDate.getMinutes(); // minutes(0-59)
+      var s = myDate.getSeconds(); // seconds
 
       $("#date").html(
         year +
-          "年" +
+          "-" +
           mon +
-          "月" +
+          "-" +
           date +
-          "日" +
+          " " +
           weeks[_week] +
           " " +
           h +
-          " : " +
+          ":" +
           m +
-          " : " +
+          ":" +
           s
       );
     }, 1000);
   });
 
+  // ascii style
   $(() => {
     $(".category-list").addClass("ascii");
     $(".tag-list").addClass("ascii");
   });
 
+  // tags style
   $(() => {
     $("#list-cloud a").wrap('<div class="ffolder small pink"></div>');
     $("#list-cloud a").width("50px");
@@ -150,10 +153,40 @@ $(() => {
     });
   });
 
+  // header access
   $("#nav-access").click(() => {
     $(".fa-angle-down").toggle();
     $("#dropdown-content").toggle();
   });
 
+  // comment tab page
   $("#comment-tabs").tabs();
+
+  // code copy function
+  $(() => {
+    $(".hljs").prepend(
+      "<div class='hljs-prompt'><i class='fa fa-files-o' aria-hidden='true'>copy</i></div>"
+    );
+    $(".hljs").hover(
+      function () {
+        _this = this;
+        $(this).children(".hljs-prompt").show();
+        $(this)
+          .children(".hljs-prompt")
+          .click(function () {
+            var text = $(_this).text();
+            text = text.substring(4, text.length);
+            navigator.clipboard.writeText(text).then(
+              function () {},
+              function () {
+                alert("copy failed");
+              }
+            );
+          });
+      },
+      function () {
+        $(this).children(".hljs-prompt").hide();
+      }
+    );
+  });
 });

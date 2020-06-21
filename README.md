@@ -8,7 +8,7 @@
 
 ## 使用
 
-**进入hexo目录**
+**进入 hexo 目录**
 
 1. 下载主题
 
@@ -49,7 +49,63 @@ highlight:
   enable: false
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
 ```
+
+## 其他
+
+### 标签云文件夹
+
+[FFolders](https://github.com/jlizanab/FFolders)
+
+设置颜色:
+
+- cyan
+- yellow
+- pink
+- green
+- gray
+
+大小:
+
+- small
+- medium
+- big
+
+修改位置:
+
+文件: `themes/milk/source/js/milk.js`
+
+```javascript
+// tags style
+$(() => {
+  $("#list-cloud a").wrap('<div class="ffolder small pink"></div>');
+  ...
+}
+```
+
+### 鼠标样式
+
+修改位置:
+
+使用文件: `themes/milk/source/css/_partial/variable.scss`中`$cursor_normal`, `$cursor_link`
+
+资源文件: `themes/milk/source/cursor/`
+
+### 网页图标
+
+修改位置:
+
+文件: `themes/milk/source/favicon/favicon.ico`
+
+### 背景图片
+
+修改位置:
+
+文件: `themes/milk/source/background.jpg`
+
+### 更多
+
+更多网页相关比如颜色、间距等可以在`themes/milk/source/css/_partial/variable.scss`找到。

@@ -1,3 +1,4 @@
+<%# comment %> 
 <div class="comment-tabs" id="comment-tabs">
   comment:
   <ul>
@@ -8,21 +9,21 @@
       <li><a href="#livere">LiveRe</a></li>
     <% } %>
   </ul>
-  <%# ChangYan %> 
+  <%# ChangYan %>
   <% if (theme.changyan.status) { %>
     <div id="changyan">
       <% if(theme.changyan.appid && theme.changyan.appkey){ %>
-        <% 
+        <%
           var _appid = theme.changyan.appid
           var _appkey = theme.changyan.appkey
-        %> 
+        %>
         <!--PC和WAP自适应版-->
-        <div id="SOHUCS" ></div> 
-        <script type="text/javascript"> 
-        (function(){ 
+        <div id="SOHUCS" ></div>
+        <script type="text/javascript">
+        (function(){
         var appid = "<%= _appid %>";
-        var conf = "<%= _appkey %>"; 
-        var width = window.innerWidth || document.documentElement.clientWidth; 
+        var conf = "<%= _appkey %>";
+        var width = window.innerWidth || document.documentElement.clientWidth;
         if (width < 960) {
         var head = document.getElementsByTagName('head')[0]||document.head||document.documentElement;
         var script = document.createElement('script');
@@ -33,10 +34,10 @@
         head.appendChild(script);
         } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
         </script>
-      <% } %> 
+      <% } %>
     </div>
   <% } %>
-  <%# LiveRe %> 
+  <%# LiveRe %>
   <% if (theme.livere.status) { %>
     <div id="livere">
       <% if (theme.livere.livere_data_uid) { %>

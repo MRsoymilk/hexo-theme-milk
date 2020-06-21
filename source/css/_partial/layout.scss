@@ -32,6 +32,15 @@
     }
   }
 
+  .nav-menu::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .nav-menu{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .nav-date {
     overflow: auto;
     white-space: nowrap;
@@ -41,6 +50,15 @@
     height: inherit;
   }
 
+  .nav-date::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .nav-date{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .nav-system {
     white-space: nowrap;
     position: absolute;
@@ -48,6 +66,15 @@
     overflow: auto;
     max-width: $header_system_max_width - 1%;
     height: inherit;
+  }
+
+  .nav-system::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .nav-system{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .nav-access {
@@ -80,6 +107,7 @@
 
     .post-table {
       border: none;
+      margin-top: 50px;
 
       .table-title {
         font-weight: bold;

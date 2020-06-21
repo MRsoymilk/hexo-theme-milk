@@ -4,7 +4,7 @@ language: en
 title: Soymilk
 author: Soymilk
 
-# main menu navigation
+# index page navigation
 menu:
   Home:
     path: /
@@ -24,15 +24,20 @@ social:
     icon: fa-envelope
     url: mailto:codermrsoymilk@gmail.com
 
+# code highlight
 highlight: monokai-sublime
 
+# date style
 date:
   format: dddd, MMMM Do YYYY, h:mm:ss a
 
+# show system information
 system: true
 
+# show article number
 show_count: false
 
+# show in index page
 cmd_category: "ls -al"
 cmd_tag: "ls"
 

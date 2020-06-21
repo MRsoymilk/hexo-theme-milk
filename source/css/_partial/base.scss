@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   font-family: $font_family;
@@ -12,11 +17,6 @@ body {
 
 a:hover {
   cursor: url("/cursor/" + $cursor_link), auto;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 a {
@@ -101,7 +101,6 @@ code {
   color: $line_code_color;
   background-color: $line_code_background;
   padding: 0 3px;
-  border: $line_code_border;
   font-size: 95%;
 }
 

@@ -1,14 +1,16 @@
+<%# Archives page %> 
 <% var last; %>
 <div class="win">
-  <% 
+  <%
     var title = 'Archives';
     if(is_tag()){
       title = path.split('/')[1]
     }
-  %> 
+  %>
   <div class="win-title"><%- title %></div>
   <div class="win-body">
     <% page.posts.each(function(post, i){ %>
+      <%# date split %> 
       <% var year = post.date.year(); %>
       <% if (last != year){ %>
         <% last = year; %>
@@ -46,7 +48,7 @@
       </div>
     <% }) %>
     <div class="paginator">
-      <%- paginator()  %> 
+      <%- paginator()  %>
     </div>
   </div>
 </div>

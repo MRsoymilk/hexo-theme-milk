@@ -1,19 +1,19 @@
 <%
-  var pageTitle = page.title || config.subtitle || '';
-  if (is_archive()) pageTitle = 'Archives';
-  if (is_tag()) pageTitle = 'Tag: ' + page.tag;
-  if (is_category()) pageTitle = 'Category: ' + page.category;
-  if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
-  if (is_year()) pageTitle += ': ' + page.year;
-  pageTitle += ' [ ' + theme.title + ' ]';
+  var page_title = page.title || config.subtitle || '';
+  if (is_archive()) page_title = 'Archives';
+  if (is_tag()) page_title = 'Tag: ' + page.tag;
+  if (is_category()) page_title = 'Category: ' + page.category;
+  if (is_month()) page_title += ': ' + page.month + '/' + page.year;
+  if (is_year()) page_title += ': ' + page.year;
+  page_title += ' [ ' + theme.title + ' ]';
 %>
 
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
 <head>
   <meta charset="UTF-8">
-  <title><%= pageTitle %></title>
-  <%- include('_partials/head.ejs') %> 
+  <title><%= page_title %></title>
+  <%- include('_partials/head.ejs') %>
 </head>
 <body>
   <div class="milk-header">

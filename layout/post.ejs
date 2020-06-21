@@ -1,36 +1,55 @@
-<%# toc %> 
+<%# toc %>
 <div class="draggable-toc">
   <div class="toc-title"><%- page.title %></div>
   <p>process: <span>0</span></p>
   <div class="progress-container">
     <div class="progress-bar" id="bar"></div>
-  </div> 
-  <%- toc(page.content, {list_number:false}) %> 
+  </div>
+  <%- toc(page.content, {list_number:false}) %>
 </div>
-<%# content %> 
+<%# content %>
 <div class="post-content" id="post-content">
   <div id="top"><%- page.title %></div>
   <div class="post">
-    <% if(page.categories){ %>
+    <%# categories  %>
+    <div class="content-categories">
+      <% if(page.categories){ %>
       <i class="fa fa-location-arrow"></i>
-      <% page.categories.each(element => { %> 
-        <a href="<%= config.root %><%= element.path %>">
-          <%- element.name  %> 
+      <ul>
+        <li>categories</li>
+        <% page.categories.each(element => { %>
+          <li>&gt;</li>
+          <li>
+            <a href="<%= config.root %><%= element.path %>">
+          <%- element.name  %>
         </a>
-      <% }) %> 
-    <% } %> 
+          </li>
+      <% }) %>
+      </ul>
+    <% } %>
+    </div>
+    <hr>
+    <%# content %>
     <%- page.content %>
-    <% if(page.tags){ %> 
+    <%# tags %>
+    <hr>
+    <div class="content-tags">
+      <% if(page.tags){ %>
       <i class="fa fa-tags"></i>
-      <% page.tags.each(element => { %> 
-        <a href="<%= config.root %><%= element.path %>">
-          <%- element.name  %> 
-        </a>
-      <% }) %> 
-    <% } %> 
+      <ul>
+        <% page.tags.each(element => { %>
+        <li><a href="<%= config.root %><%= element.path %>">
+          <%- element.name %>
+        </a></li>
+      <% }) %>
+      </ul>
+    <% } %>
+    </div>
+    <%# comment %>
     <%- include('_partials/tools/comment.ejs') %>
   </div>
 </div>
+<%# back to top %> 
 <div>
   <button id="scroll2top">back to top</button>
 </div>

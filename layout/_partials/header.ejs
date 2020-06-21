@@ -1,6 +1,7 @@
-<%# nav %> 
+<%# global navigation bar %> 
 <% if (theme.menu) { %>
   <nav class="header-nav">
+    <%# menu %> 
     <ul class="nav-menu">
       <% for( var _menu in theme.menu) { %>
         <li>
@@ -9,18 +10,18 @@
         </li>
       <% } %>
     </ul>
-    <%# date %> 
+    <%# date %>
     <% if (theme.date) { %>
       <span class="nav-date">
         <i class="fa fa-calendar" aria-hidden="true"></i>
         <span id="date"></span>
       </span>
-    <% } %> 
+    <% } %>
     <%# system info %>
-    <% if(theme.system){ %> 
+    <% if(theme.system){ %>
       <span class="nav-system" id="nav-system"></span>
     <% } %>
-    <%# more %> 
+    <%# more %>
     <span class="nav-access">
       <i class="fa fa-universal-access" id="nav-access"></i>
       <i class="fa fa-angle-down"></i>

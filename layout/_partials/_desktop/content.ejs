@@ -1,12 +1,18 @@
+<%# index page content %> 
 <ul>
   <% page.posts.forEach(function(post){ %>
+    <%# split path %> 
     <% _path = post.source; var path = _path.split('/'); %>
     <li>
+      <%# navigation bar %> 
       <ul class="breadcrumbs" id="post-source">
         <li><a href="#"><i class="fa fa-file-text"></i></a></li>
         <% for( let i = 1; i < path.length - 1; i++ ) { %>
-          <% var element = '<li><a href="#">' + path[i] + '</a></li>'; %> 
-          <%- element %> 
+          <% var element = '<li><a href="#">' + path[i] + '</a></li>'; %>
+          <%- element %>
+        <% } %>
+        <% if (post.title == '') { %>
+          <% post.title = 'no-title'; %> 
         <% } %>
         <%-
           '<li id="post-title"><a href="' 
@@ -14,6 +20,7 @@
           + truncate(post.title, {length: 15}) + '</a></li>'
         %> 
       </ul>
+      <%# article summary  %> 
       <div class="post-table">
         <table>
           <tr>
@@ -27,8 +34,8 @@
             <td class="table-linenum" id="table-linenum">content</td>
             <td><%- post.excerpt %></td>
           </tr>
-        </table> 
+        </table>
       </div>
     </li>
-  <% }); %> 
+  <% }); %>
 </ul>
