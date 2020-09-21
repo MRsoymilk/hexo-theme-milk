@@ -65,6 +65,8 @@ $(() => {
       os = '<i class="fa fa-windows" aria-hidden="true"></i>';
     } else if (agent.indexOf("Android") >= 0) {
       os = '<i class="fa fa-android" aria-hidden="true"></i';
+    } else if (agent.indexOf("Mac")) {
+      os = '<i class="fa fa-apple" aria-hidden="true"></i>';
     } else {
       os = navigator.platform;
     }
@@ -78,6 +80,8 @@ $(() => {
       web = '<i class="fa fa-chrome" aria-hidden="true"></i>';
     } else if (agent.indexOf("Edge") >= 0) {
       web = '<i class="fa fa-edge" aria-hidden="true"></i>';
+    } else if (agent.indexOf("Safari")) {
+      web = '<i class="fa fa-safari" aria-hidden="true"></i>';
     } else {
       web = '<i class="fa fa-internet-explorer" aria-hidden="true"></i>';
     }
