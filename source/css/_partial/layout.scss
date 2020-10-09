@@ -32,11 +32,11 @@
     }
   }
 
-  .nav-menu::-webkit-scrollbar{
+  .nav-menu::-webkit-scrollbar {
     display: none;
   }
-  
-  .nav-menu{
+
+  .nav-menu {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -50,11 +50,11 @@
     height: inherit;
   }
 
-  .nav-date::-webkit-scrollbar{
+  .nav-date::-webkit-scrollbar {
     display: none;
   }
-  
-  .nav-date{
+
+  .nav-date {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -68,11 +68,11 @@
     height: inherit;
   }
 
-  .nav-system::-webkit-scrollbar{
+  .nav-system::-webkit-scrollbar {
     display: none;
   }
-  
-  .nav-system{
+
+  .nav-system {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -97,6 +97,7 @@
     background-color: $background_color;
     position: absolute;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100%;
     width: $content_width - 0.5%;
 
@@ -108,6 +109,10 @@
     .post-table {
       border: none;
       margin-top: 50px;
+
+      .hljs {
+        width: $content_width - 0.5%;
+      }
 
       .table-title {
         font-weight: bold;
