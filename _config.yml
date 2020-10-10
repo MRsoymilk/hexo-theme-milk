@@ -51,3 +51,9 @@ valine:
   status: true
   appid: "5bHFwYPW2iHWCiV7WmNRSenk-gzGzoHsz"
   appkey: "2q4UgVDTmeJf9Phe8VbnNKyC"
+
+# ChangYan
+changyan:
+  status: true
+  appid: "cyuGH4lBk"
+  appkey: "ae32d85e4ca99348209aedfd3ae01478"
