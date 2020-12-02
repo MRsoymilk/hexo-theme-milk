@@ -18,10 +18,15 @@ git clone https://github.com/MRsoymilk/hexo-theme-milk.git themes/milk
 
 2. 主题依赖
 
-主题使用`scss`
+原本使用`hexo-renderer-scss`，存在无法安装问题。现在使用`sass`将`milk.scss`转为`milk.css`。保留原始文件便于修改。
+
+### 自定义操作概述
 
 ```bash
-npm install hexo-renderer-scss
+# 安装sass
+sudo npm install -g sass
+# 修改相应文件，最终只要对milk.scss文件进行操作
+sass milk.scss milk.scss
 ```
 
 3. 切换主题
