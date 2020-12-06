@@ -28,6 +28,9 @@
   color: #a8a8a8;
   text-decoration: none;
 }
+.milk-header .nav-menu .active a {
+  color: #ffa500;
+}
 .milk-header .nav-menu::-webkit-scrollbar {
   display: none;
 }

@@ -55,6 +55,20 @@ $(() => {
     });
   }
 
+  // nav-menu highlight
+  $(() => {
+    var title = document.title;
+    if (title[0] == '[' && title[title.length - 1] == ']') {
+      document.getElementById("Home").className += "active";
+    }
+    else if(title.search("Archives") == 0){
+      document.getElementById("Archives").className += "active";
+    }
+    else if(title.search("about") == 0){
+      document.getElementById("About").className += "active"
+    }
+  })
+
   // header system info
   $(() => {
     var agent = navigator.userAgent;

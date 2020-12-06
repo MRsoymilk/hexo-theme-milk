@@ -32,6 +32,12 @@
     }
   }
 
+  .nav-menu .active {
+    a {
+      color: #ffa500;
+    }
+  }
+
   .nav-menu::-webkit-scrollbar {
     display: none;
   }
