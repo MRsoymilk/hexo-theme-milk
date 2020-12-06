@@ -4,7 +4,7 @@
     <%# menu %> 
     <ul class="nav-menu">
       <% for( var _menu in theme.menu) { %>
-        <li>
+        <li id="<%- _menu %>">
           <i class="fa fa-<%- theme.menu[_menu].icon %>" aria-hidden="true"></i>
           <a href="<%- url_for(theme.menu[_menu].path) %> "><%- _menu %></a>
         </li>
