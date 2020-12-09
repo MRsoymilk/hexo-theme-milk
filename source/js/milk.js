@@ -58,16 +58,14 @@ $(() => {
   // nav-menu highlight
   $(() => {
     var title = document.title;
-    if (title[0] == '[' && title[title.length - 1] == ']') {
+    if (title[0] == "[" && title[title.length - 1] == "]") {
       document.getElementById("Home").className += "active";
-    }
-    else if(title.search("Archives") == 0){
+    } else if (title.search("Archives") == 0) {
       document.getElementById("Archives").className += "active";
+    } else if (title.search("about") == 0) {
+      document.getElementById("About").className += "active";
     }
-    else if(title.search("about") == 0){
-      document.getElementById("About").className += "active"
-    }
-  })
+  });
 
   // header system info
   $(() => {
@@ -192,6 +190,15 @@ $(() => {
         $(this)
           .children(".hljs-prompt")
           .click(function () {
+            // copy prompt
+            var prompt = document.createElement("span");
+            prompt.className = "Tips";
+            prompt.innerHTML = "alerady copy!";
+            document.body.appendChild(prompt);
+            setTimeout(function () {
+              document.body.removeChild(prompt);
+            }, 500);
+
             var text = $(_this).text();
             text = text.substring(4, text.length);
             navigator.clipboard.writeText(text).then(

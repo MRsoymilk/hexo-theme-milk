@@ -109,3 +109,17 @@ blockquote {
   font-style: italic;
   line-height: 2em;
 }
+
+.Tips {
+  position: fixed;
+  z-index: 99;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: $font_color;
+  width: 100px;
+  font-size: $font_size;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+}

@@ -253,6 +253,20 @@ blockquote {
   line-height: 2em;
 }
 
+.Tips {
+  position: fixed;
+  z-index: 99;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffa500;
+  width: 100px;
+  font-size: 25px;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+}
+
 #top {
   font-size: larger;
   text-align: center;
