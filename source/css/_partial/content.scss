@@ -34,14 +34,38 @@
   }
 
   .toc-level-2 {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   .toc-level-3 {
-    margin-left: 20px;
+    margin-left: 7px;
 
     &:before {
-      content: "> ";
+      content: ">";
+    }
+  }
+
+  .toc-level-4 {
+    margin-left: 9px;
+
+    &:before {
+      content: ">";
+    }
+  }
+
+  .toc-level-5 {
+    margin-left: 11px;
+
+    &:before {
+      content: ">";
+    }
+  }
+
+  .toc-level-6 {
+    margin-left: 13px;
+
+    &:before {
+      content: ">";
     }
   }
 

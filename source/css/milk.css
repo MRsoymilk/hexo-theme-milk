@@ -211,7 +211,7 @@ h3 {
   margin: 15px;
 }
 h3::before {
-  font-size: 15px;
+  font-size: 18px;
   content: "h3. ";
   color: rgba(255, 166, 0, 0.502);
 }
@@ -220,7 +220,7 @@ h4 {
   margin: 10px;
 }
 h4::before {
-  font-size: 10px;
+  font-size: 16px;
   content: "h4. ";
   color: rgba(255, 166, 0, 0.502);
 }
@@ -229,13 +229,13 @@ h5 {
   margin: 5px;
 }
 h5:before {
-  font-size: 5px;
+  font-size: 14px;
   content: "h5. ";
   color: rgba(255, 166, 0, 0.502);
 }
 
 h6::before {
-  font-size: 1px;
+  font-size: 12px;
   content: "h6. ";
   color: rgba(255, 166, 0, 0.502);
 }
@@ -301,13 +301,31 @@ blockquote {
   color: #ffffff;
 }
 .draggable-toc .toc-level-2 {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .draggable-toc .toc-level-3 {
-  margin-left: 20px;
+  margin-left: 7px;
 }
 .draggable-toc .toc-level-3:before {
-  content: "> ";
+  content: ">";
+}
+.draggable-toc .toc-level-4 {
+  margin-left: 9px;
+}
+.draggable-toc .toc-level-4:before {
+  content: ">";
+}
+.draggable-toc .toc-level-5 {
+  margin-left: 11px;
+}
+.draggable-toc .toc-level-5:before {
+  content: ">";
+}
+.draggable-toc .toc-level-6 {
+  margin-left: 13px;
+}
+.draggable-toc .toc-level-6:before {
+  content: ">";
 }
 .draggable-toc .active {
   color: #10f7ff;

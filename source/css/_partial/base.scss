@@ -65,7 +65,7 @@ h2 {
 h3 {
   margin: 15px;
   &::before {
-    font-size: 15px;
+    font-size: 18px;
     content: "h3. ";
     color: $h_prompt_color;
   }
@@ -74,7 +74,7 @@ h3 {
 h4 {
   margin: 10px;
   &::before {
-    font-size: 10px;
+    font-size: 16px;
     content: "h4. ";
     color: $h_prompt_color;
   }
@@ -83,7 +83,7 @@ h4 {
 h5 {
   margin: 5px;
   &:before {
-    font-size: 5px;
+    font-size: 14px;
     content: "h5. ";
     color: $h_prompt_color;
   }
@@ -91,7 +91,7 @@ h5 {
 
 h6 {
   &::before {
-    font-size: 1px;
+    font-size: 12px;
     content: "h6. ";
     color: $h_prompt_color;
   }
