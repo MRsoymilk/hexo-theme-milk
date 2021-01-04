@@ -153,7 +153,7 @@ html,
 body {
   font-family: "Bad Script";
   font-size: 25px !important;
-  cursor: url("/cursor/Arrow.cur"), auto;
+  cursor: url("/cursor/normal.cur"), auto;
   background-image: url("/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -162,7 +162,7 @@ body {
 }
 
 a:hover {
-  cursor: url("/cursor/AppStarting.cur"), auto;
+  cursor: url("/cursor/link.cur"), auto;
 }
 
 a {
