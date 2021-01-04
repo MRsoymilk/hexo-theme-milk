@@ -8,6 +8,8 @@
 
 ## 使用
 
+详情参考[hexo-theme-milk wiki](https://github.com/MRsoymilk/hexo-theme-milk/wiki)
+
 **进入 hexo 目录**
 
 1. 下载主题
@@ -16,20 +18,7 @@
 git clone https://github.com/MRsoymilk/hexo-theme-milk.git themes/milk
 ```
 
-2. 主题依赖
-
-原本使用`hexo-renderer-scss`，存在无法安装问题。现在使用`sass`将`milk.scss`转为`milk.css`。保留原始文件便于修改。
-
-### 自定义操作概述
-
-```bash
-# 安装sass
-sudo npm install -g sass
-# 修改相应文件，最终只要对milk.scss文件进行操作
-sass milk.scss milk.scss
-```
-
-3. 切换主题
+2. 切换主题
 
 修改`_config.yml`
 
@@ -37,7 +26,7 @@ sass milk.scss milk.scss
 theme: milk
 ```
 
-4. 主题高亮
+3. 代码高亮
 
 默认使用[highlight.js](https://highlightjs.org/)的`monokai-sublime`主题。自定义设置请下载相应代码并放置在`themes/milk/source/lib/highlight/`目录中。
 
@@ -59,58 +48,3 @@ highlight:
   hljs: false
 ```
 
-## 其他
-
-### 标签云文件夹
-
-[FFolders](https://github.com/jlizanab/FFolders)
-
-设置颜色:
-
-- cyan
-- yellow
-- pink
-- green
-- gray
-
-大小:
-
-- small
-- medium
-- big
-
-修改位置:
-
-文件: `themes/milk/source/js/milk.js`
-
-```javascript
-// tags style
-$(() => {
-  $("#list-cloud a").wrap('<div class="ffolder small pink"></div>');
-  ...
-}
-```
-
-### 鼠标样式
-
-修改位置:
-
-使用文件: `themes/milk/source/css/_partial/variable.scss`中`$cursor_normal`, `$cursor_link`
-
-资源文件: `themes/milk/source/cursor/`
-
-### 网页图标
-
-修改位置:
-
-文件: `themes/milk/source/favicon/favicon.ico`
-
-### 背景图片
-
-修改位置:
-
-文件: `themes/milk/source/background.jpg`
-
-### 更多
-
-更多网页相关比如颜色、间距等可以在`themes/milk/source/css/_partial/variable.scss`找到。
