@@ -45,7 +45,7 @@ $(() => {
       var temp_height = $("#post-content").scrollTop();
       var scrolled = (temp_height / height) * 100;
       document.getElementById("bar").style.width = scrolled + "%";
-      $("div p span").text(scrolled.toFixed(2) + "%");
+      $("div.draggable-toc p span").text(scrolled.toFixed(2) + "%");
 
       // highlight
       len = h_list.length / 2;
