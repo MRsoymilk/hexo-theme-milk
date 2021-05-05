@@ -25,7 +25,7 @@ social:
     url: mailto:codermrsoymilk@gmail.com
 
 # code highlight
-highlight: monokai-sublime
+highlight: railscasts
 
 # date style
 date:
