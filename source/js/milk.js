@@ -1,4 +1,18 @@
 $(() => {
+  // gitee usage
+  $(() => {
+    if($(location).attr("pathname").slice(0, 5) == "/blog"){
+      var root_path = "/blog";
+      $("body").css({
+        "cursor":"url(\"" + root_path + "/cursor/normal.cur\"), auto",
+        "background-image":"url(\"" + root_path + "/background.jpg" + "\")"
+      });
+      $("a").hover(() => {
+        $("a").css("cursor", "url(\"" + root_path + "/cursor/link.cur\"), auto")
+      })
+    }
+  })
+
   // use fancybox to show pictures
   $("img").each(function (index) {
     var title = ' data-caption="' + $(this).attr("alt") + '"';

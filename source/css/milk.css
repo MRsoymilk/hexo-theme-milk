@@ -241,16 +241,26 @@ h6::before {
 }
 
 code {
-  color: #ec6de4;
-  background-color: rgba(221, 221, 221, 0.22);
+  color: rgba(1, 1, 1, 0.89);
+  background-color: rgba(197, 197, 197, 0.99);
   padding: 0 3px;
   font-size: 95%;
+  border: solid red 1px;
+  border-radius: 0.3rem;
 }
 
 blockquote {
   text-align: center;
   font-style: italic;
   line-height: 2em;
+  border-left: solid 5px;
+  background: rgba(9, 8, 8, 0.9);
+}
+
+details {
+  border: solid 1px;
+  border-radius: 0.5rem;
+  margin: 5px;
 }
 
 .Tips {
@@ -459,6 +469,8 @@ blockquote {
 .content-tags a {
   border: 1px solid;
   border-radius: 25px;
+  padding: 5px;
+  margin: 5px;
 }
 .content-tags ul li {
   list-style: none;
@@ -586,7 +598,6 @@ ul.breadcrumbs li {
   *display: inline;
   zoom: 1;
   vertical-align: top;
-  border-left: 1px solid #ff0808;
   transition: 0.3s ease;
 }
 ul.breadcrumbs li:last-child a {
@@ -650,7 +661,6 @@ ul.breadcrumbs li a {
   padding: 0px 15px 0px 25px;
   text-decoration: none;
   background-color: #000000;
-  border: 1px solid #ff0808;
   white-space: nowrap;
   overflow: hidden;
   transition: 0.3s ease;

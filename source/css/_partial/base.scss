@@ -102,12 +102,22 @@ code {
   background-color: $line_code_background;
   padding: 0 3px;
   font-size: 95%;
+  border: solid red 1px;
+  border-radius: 0.3rem;
 }
 
 blockquote {
   text-align: center;
   font-style: italic;
   line-height: 2em;
+  border-left: solid 5px;
+  background: rgba(9, 8, 8, 0.9)
+}
+
+details {
+  border: solid 1px;
+  border-radius: 0.5rem;
+  margin: 5px;
 }
 
 .Tips {

@@ -41,7 +41,7 @@ ul.breadcrumbs {
     list-style: none;
     list-style-image: none;
     @include inline;
-    border-left: 1px solid $breadrumb_border_color;
+    //border-left: 1px solid $breadrumb_border_color;
     transition: 0.3s ease;
 
     &:last-child {
@@ -123,7 +123,7 @@ ul.breadcrumbs {
       padding: 0px 15px 0px 25px;
       text-decoration: none;
       background-color: $breadrumb_background_color;
-      border: 1px solid $breadrumb_border_color;
+      //border: 1px solid $breadrumb_border_color;
       white-space: nowrap;
       overflow: hidden;
       transition: 0.3s ease;

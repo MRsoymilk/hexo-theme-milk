@@ -38,8 +38,8 @@ system: true
 show_count: false
 
 # show in index page
-cmd_category: "ls -al"
-cmd_tag: "ls"
+cmd_category: "tree"
+cmd_tag: "dir"
 
 # LiveRe
 livere:
