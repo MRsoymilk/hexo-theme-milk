@@ -9,44 +9,46 @@
   %>
   <div class="win-title"><%- title %></div>
   <div class="win-body">
-    <% page.posts.each(function(post, i){ %>
-      <%# date split %> 
-      <% var year = post.date.year(); %>
-      <% if (last != year){ %>
-        <% last = year; %>
-          <div>
-            <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year">
-              <%= year %>
-            </a>
-          </div>
-      <% } %>
-      <div class="archives">
-        <article class="archive-article archive-type-<%= post.layout %>">
-          <div class="archive-article-inner">
-            <header class="archive-article-header">
-              <a href="<%- url_for(post.path) %>">
-                <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
-                  <%= date(post.date) %>
-                </time>
+    <div class="archive">
+      <% page.posts.each(function(post, i){ %>
+        <%# date split %> 
+        <% var year = post.date.year(); %>
+        <% if (last != year){ %>
+          <% last = year; %>
+            <div>
+              <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year">
+                <%= year %>
               </a>
-              <% if (post.link){ %>
-                <h1 itemprop="name">
-                  <a href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
-                    <%= post.title %>
-                  </a>
-                </h1>
-              <% } else if (post.title){ %>
-                <h1 itemprop="name">
-                  <a href="<%- url_for(post.path) %>">
-                    <%= post.title %>
-                  </a>
-                </h1>
-              <% } %>
-            </header>
-          </div>
-        </article>
-      </div>
-    <% }) %>
+            </div>
+        <% } %>
+        <div class="archive-item">
+          <article class="archive-article archive-type-<%= post.layout %>">
+            <div class="archive-article-inner">
+              <header class="archive-article-header">
+                <a href="<%- url_for(post.path) %>">
+                  <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+                    <%= date(post.date) %>
+                  </time>
+                </a>
+                <% if (post.link){ %>
+                  <h1 itemprop="name">
+                    <a href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
+                      <%= post.title %>
+                    </a>
+                  </h1>
+                <% } else if (post.title){ %>
+                  <h1 itemprop="name">
+                    <a href="<%- url_for(post.path) %>">
+                      <%= post.title %>
+                    </a>
+                  </h1>
+                <% } %>
+              </header>
+            </div>
+          </article>
+        </div>
+      <% }) %>
+    </div>
     <div class="paginator">
       <%- paginator()  %>
     </div>

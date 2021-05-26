@@ -13,6 +13,19 @@ $(() => {
     }
   })
 
+  // resizable
+  $(() => {
+    $(".win-body").resizable({
+      animate: true,
+      minHeight: 500,
+      minWidth: 1000,
+      alsoResize: ".win-title"
+    })
+    $(".win-title").resizable({
+      animate: true,
+      minHeight: 50
+    })
+  })
   // use fancybox to show pictures
   $("img").each(function (index) {
     var title = ' data-caption="' + $(this).attr("alt") + '"';

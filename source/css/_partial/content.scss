@@ -156,28 +156,31 @@
   color: rgb(255, 255, 255);
 }
 
+.ui-resizable-helper {
+  border: 1px dotted;
+}
+
 .win {
+  width: $archive_width;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
   .win-title {
     background-color: $archive_title_background_color;
     color: $archive_title_color;
-    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     line-height: 50px;
-    width: $archive_width;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .win-body {
+    height: 90%;
     background-color: $background_color;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50%;
-    width: $win_width;
-    height: 500px;
     word-wrap: break-word;
     word-break: break-all;
-    overflow-y: scroll;
+    //overflow-y: scroll;
   }
 
   .win-body::-webkit-scrollbar {
@@ -192,6 +195,7 @@
   .win-list {
     text-align: center;
   }
+
 }
 
 .content-categories {
@@ -233,6 +237,7 @@
 
 .paginator {
   margin-top: 50px;
+  text-align: center;
 
   .page-number {
     padding: 16px 32px;

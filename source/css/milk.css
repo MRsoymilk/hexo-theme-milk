@@ -426,26 +426,29 @@ details {
   color: white;
 }
 
-.win .win-title {
-  background-color: #ffa500;
-  color: #000000;
-  height: 50px;
-  line-height: 50px;
+.ui-resizable-helper {
+  border: 1px dotted;
+}
+
+.win {
   width: 55%;
-  text-align: center;
+  height: 90%;
   margin-left: auto;
   margin-right: auto;
 }
+.win .win-title {
+  background-color: #ffa500;
+  color: #000000;
+  min-height: 50px;
+  max-height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
 .win .win-body {
+  height: 90%;
   background-color: rgba(0, 0, 0, 0.675);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50%;
-  width: 55%;
-  height: 500px;
   word-wrap: break-word;
   word-break: break-all;
-  overflow-y: scroll;
 }
 .win .win-body::-webkit-scrollbar {
   display: none;
@@ -491,6 +494,7 @@ details {
 
 .paginator {
   margin-top: 50px;
+  text-align: center;
 }
 .paginator .page-number {
   padding: 16px 32px;
@@ -569,6 +573,12 @@ details {
 #vcomments {
   background-color: #ffffff;
   margin-top: 20px;
+}
+
+.archive {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 /* cyrillic */

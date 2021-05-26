@@ -1,11 +1,10 @@
 <%# favicon %>
 <%- favicon_tag('/favicon/favicon.ico') %>
 <%# highlight %>
-<%
-  var highlight_path = config.root + "/lib/highlight/" + theme.highlight + ".css";
-%>
-<link rel="stylesheet" href=<%= highlight_path %>>
+<%- css('/lib/highlight/'+theme.highlight) %>
 <%- css('/lib/fancybox/jquery.fancybox.min.css') %>
+<%# jquery-ui %>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <%# font-awesome %>
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 <%# self %>
