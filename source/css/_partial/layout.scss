@@ -2,6 +2,7 @@
   position: absolute;
   top: 0;
   height: $header_height;
+  line-height: $header_height;
   width: 100%;
 
   .header-nav {
@@ -20,10 +21,16 @@
 
     li {
       display: inline-block;
+      //line-height: $header_height;
     }
 
     li:hover {
+      color: #fff;
       background-color: #2e394a;
+
+      a {
+        color: #fff;
+      }
     }
 
     a {
@@ -33,8 +40,11 @@
   }
 
   .nav-menu .active {
+    color: #000;
+    background-color: #ffa500;
+
     a {
-      color: #ffa500;
+      color: #000;
     }
   }
 

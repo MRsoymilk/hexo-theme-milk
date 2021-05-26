@@ -3,6 +3,7 @@
   position: absolute;
   top: 0;
   height: 45px;
+  line-height: 45px;
   width: 100%;
 }
 .milk-header .header-nav {
@@ -22,14 +23,22 @@
   display: inline-block;
 }
 .milk-header .nav-menu li:hover {
+  color: #fff;
   background-color: #2e394a;
+}
+.milk-header .nav-menu li:hover a {
+  color: #fff;
 }
 .milk-header .nav-menu a {
   color: #a8a8a8;
   text-decoration: none;
 }
+.milk-header .nav-menu .active {
+  color: #000;
+  background-color: #ffa500;
+}
 .milk-header .nav-menu .active a {
-  color: #ffa500;
+  color: #000;
 }
 .milk-header .nav-menu::-webkit-scrollbar {
   display: none;
@@ -421,6 +430,7 @@ details {
   background-color: #ffa500;
   color: #000000;
   height: 50px;
+  line-height: 50px;
   width: 55%;
   text-align: center;
   margin-left: auto;
