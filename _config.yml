@@ -57,3 +57,9 @@ changyan:
   status: true
   appid: "cyuGH4lBk"
   appkey: "ae32d85e4ca99348209aedfd3ae01478"
+
+# scroll to top
+scroll2top:
+  mouse_out_ani: ['/2top/out_1.png']
+  mouse_hover_ani: ['/2top/hover_1.png', '/2top/hover_2.png']
+  mouse_click_ani: ['/2top/click_1.png', '/2top/click_2.png', '/2top/click_3.png']

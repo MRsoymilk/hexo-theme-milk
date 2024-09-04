@@ -292,15 +292,14 @@ details {
   font-weight: bold;
 }
 
-#scroll2top {
+#sprite-container {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 90%;
-  color: #ffa500;
-  background-color: rgba(0, 0, 0, 0.675);
   z-index: 9;
-  width: 100px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
 }
 
 .draggable-toc {

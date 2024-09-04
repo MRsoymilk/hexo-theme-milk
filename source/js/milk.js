@@ -41,8 +41,41 @@ $(() => {
   });
 
   // scroll to top
-  $("#scroll2top").click((e) => {
-    $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
+  $(() => {
+    const $spriteContainer = $('#sprite-container');
+    const mouseOutAni = $spriteContainer.data('mouse-out-ani').split(',');
+    const mouseHoverAni = $spriteContainer.data('mouse-hover-ani').split(',');
+    const mouseClickAni = $spriteContainer.data('mouse-click-ani').split(',');
+
+    function handleMouseOut() {
+      mouseOutAni.forEach((frame, index) => {
+        setTimeout(() => {
+          $spriteContainer.css('background-image', `url('${frame}')`);
+        }, index * 100);
+      });
+    }
+    
+    function handleMouseClick() {
+      $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
+      mouseClickAni.forEach((frame, index) => {
+        setTimeout(() => {
+          $spriteContainer.css('background-image', `url('${frame}')`);
+        }, index * 100);
+      });
+    }
+    
+    function handleMouseOver() {
+      mouseHoverAni.forEach((frame, index) => {
+        setTimeout(() => {
+          $spriteContainer.css('background-image', `url('${frame}')`);
+        }, index * 100);
+      });
+    }
+    
+    $spriteContainer.click(handleMouseClick)
+    $spriteContainer.mouseover(handleMouseOver);
+    $spriteContainer.mouseout(handleMouseOut);
+    handleMouseOut();
   });
 
   // toc style
@@ -116,7 +149,7 @@ $(() => {
     } else if (agent.indexOf("Mac")) {
       os = '<i class="fa fa-apple" aria-hidden="true"></i>';
     } else {
-      os = navigator.platform;
+      os = '<i class="fa fa-meh-o" aria-hidden="true" /></i>';
     }
 
     var web;
