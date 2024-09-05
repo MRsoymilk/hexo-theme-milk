@@ -8,20 +8,20 @@ author: Soymilk
 menu:
   Home:
     path: /
-    icon: home
+    icon: fas fa-home
   Archives:
     path: /archives
-    icon: archive
+    icon: fas fa-archive
   About:
     path: /about
-    icon: user-circle
+    icon: fas fa-user-circle
 
 social:
   github:
-    icon: fa-github-alt 
+    icon: fab fa-github-alt 
     url: https://github.com/MRsoymilk
   gmail:
-    icon: fa-envelope
+    icon: fas fa-envelope
     url: mailto:codermrsoymilk@gmail.com
 
 # code highlight

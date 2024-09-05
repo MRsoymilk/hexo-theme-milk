@@ -14,7 +14,7 @@
     <%# categories  %>
     <div class="content-categories">
       <% if(page.categories){ %>
-      <i class="fa fa-location-arrow"></i>
+      <i class="fas fa-location-arrow"></i>
       <ul>
         <li>categories</li>
         <% page.categories.each(element => { %>
@@ -35,7 +35,7 @@
     <hr>
     <div class="content-tags">
       <% if(page.tags){ %>
-      <i class="fa fa-tags"></i>
+      <i class="fas fa-tags"></i>
       <ul>
         <% page.tags.each(element => { %>
         <li><a href="<%= config.root %><%= element.path %>">

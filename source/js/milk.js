@@ -43,39 +43,42 @@ $(() => {
   // scroll to top
   $(() => {
     const $spriteContainer = $('#sprite-container');
-    const mouseOutAni = $spriteContainer.data('mouse-out-ani').split(',');
-    const mouseHoverAni = $spriteContainer.data('mouse-hover-ani').split(',');
-    const mouseClickAni = $spriteContainer.data('mouse-click-ani').split(',');
+    if($spriteContainer.data('mouse-out-ani') && $spriteContainer.data('mouse-hover-ani') && $spriteContainer.data('mouse-click-ani'))
+    {
+      const mouseOutAni = $spriteContainer.data('mouse-out-ani').split(',');
+      const mouseHoverAni = $spriteContainer.data('mouse-hover-ani').split(',');
+      const mouseClickAni = $spriteContainer.data('mouse-click-ani').split(',');
 
-    function handleMouseOut() {
-      mouseOutAni.forEach((frame, index) => {
-        setTimeout(() => {
-          $spriteContainer.css('background-image', `url('${frame}')`);
-        }, index * 100);
-      });
+      function handleMouseOut() {
+        mouseOutAni.forEach((frame, index) => {
+          setTimeout(() => {
+            $spriteContainer.css('background-image', `url('${frame}')`);
+          }, index * 100);
+        });
+      }
+      
+      function handleMouseClick() {
+        $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
+        mouseClickAni.forEach((frame, index) => {
+          setTimeout(() => {
+            $spriteContainer.css('background-image', `url('${frame}')`);
+          }, index * 100);
+        });
+      }
+      
+      function handleMouseOver() {
+        mouseHoverAni.forEach((frame, index) => {
+          setTimeout(() => {
+            $spriteContainer.css('background-image', `url('${frame}')`);
+          }, index * 100);
+        });
+      }
+      
+      $spriteContainer.click(handleMouseClick)
+      $spriteContainer.mouseover(handleMouseOver);
+      $spriteContainer.mouseout(handleMouseOut);
+      handleMouseOut();
     }
-    
-    function handleMouseClick() {
-      $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
-      mouseClickAni.forEach((frame, index) => {
-        setTimeout(() => {
-          $spriteContainer.css('background-image', `url('${frame}')`);
-        }, index * 100);
-      });
-    }
-    
-    function handleMouseOver() {
-      mouseHoverAni.forEach((frame, index) => {
-        setTimeout(() => {
-          $spriteContainer.css('background-image', `url('${frame}')`);
-        }, index * 100);
-      });
-    }
-    
-    $spriteContainer.click(handleMouseClick)
-    $spriteContainer.mouseover(handleMouseOver);
-    $spriteContainer.mouseout(handleMouseOut);
-    handleMouseOut();
   });
 
   // toc style
@@ -141,34 +144,34 @@ $(() => {
     var agent = navigator.userAgent;
     var os;
     if (agent.indexOf("Linux") >= 0) {
-      os = '<i class="fa fa-linux" aria-hidden="true"></i>';
+      os = '<i class="fab fa-linux" aria-hidden="true"></i>';
     } else if (agent.indexOf("Windows") >= 0) {
-      os = '<i class="fa fa-windows" aria-hidden="true"></i>';
+      os = '<i class="fab fa-windows" aria-hidden="true"></i>';
     } else if (agent.indexOf("Android") >= 0) {
-      os = '<i class="fa fa-android" aria-hidden="true"></i';
+      os = '<i class="fab fa-android" aria-hidden="true"></i';
     } else if (agent.indexOf("Mac")) {
-      os = '<i class="fa fa-apple" aria-hidden="true"></i>';
+      os = '<i class="fab fa-apple" aria-hidden="true"></i>';
     } else {
-      os = '<i class="fa fa-meh-o" aria-hidden="true" /></i>';
+      os = '<i class="fab fa-meh-o" aria-hidden="true" /></i>';
     }
 
     var web;
     if (agent.indexOf("Firefox") >= 0) {
-      web = '<i class="fa fa-firefox"></i>';
+      web = '<i class="fab fa-firefox"></i>';
     } else if (agent.indexOf("Opera") >= 0) {
-      web = '<i class="fa fa-opera" aria-hidden="true"></i>';
+      web = '<i class="fab fa-opera" aria-hidden="true"></i>';
     } else if (agent.indexOf("Chrome") >= 0) {
-      web = '<i class="fa fa-chrome" aria-hidden="true"></i>';
+      web = '<i class="fab fa-chrome" aria-hidden="true"></i>';
     } else if (agent.indexOf("Edge") >= 0) {
-      web = '<i class="fa fa-edge" aria-hidden="true"></i>';
+      web = '<i class="fab fa-edge" aria-hidden="true"></i>';
     } else if (agent.indexOf("Safari")) {
-      web = '<i class="fa fa-safari" aria-hidden="true"></i>';
+      web = '<i class="fab fa-safari" aria-hidden="true"></i>';
     } else {
-      web = '<i class="fa fa-internet-explorer" aria-hidden="true"></i>';
+      web = '<i class="fab fa-internet-explorer" aria-hidden="true"></i>';
     }
 
     var screen_info =
-      '<i class="fa fa-tv"></i>: ' + screen.width + " x " + screen.height;
+      '<i class="fas fa-desktop"></i>: ' + screen.width + " x " + screen.height;
 
     $("#nav-system").html(
       "web: " + web + " | " + "OS: " + os + " | " + screen_info
@@ -182,7 +185,7 @@ $(() => {
       var year = myDate.getFullYear(); // year
       var mon = myDate.getMonth() + 1; // month
       var date = myDate.getDate(); // date
-      _week = myDate.getDay();
+      var _week = myDate.getDay();
       var weeks = [
         "Sunday",
         "Monday",
@@ -233,54 +236,47 @@ $(() => {
       "white-space": "nowrap",
     });
 
-    $("#list-cloud a").each(function () {
+    $("#list-cloud a").each(function() {
       $(this).attr("title", $(this).text());
     });
   });
 
   // header access
-  $("#nav-access").click(() => {
-    $(".fa-angle-down").toggle();
+  $("#nav-access").click(function() {
+    $(this).toggleClass('fa-toggle-off fa-toggle-on');
     $("#dropdown-content").toggle();
-  });
+});
 
   // comment tab page
   $("#comment-tabs").tabs();
 
   // code copy function
   $(() => {
-    $(".hljs").prepend(
-      "<div class='hljs-prompt'><i class='fa fa-files-o' aria-hidden='true'>copy</i></div>"
-    );
-    $(".hljs").hover(
-      function () {
-        _this = this;
-        $(this).children(".hljs-prompt").show();
-        $(this)
-          .children(".hljs-prompt")
-          .click(function () {
-            // copy prompt
-            var prompt = document.createElement("span");
-            prompt.className = "Tips";
-            prompt.innerHTML = "alerady copy!";
-            document.body.appendChild(prompt);
-            setTimeout(function () {
-              document.body.removeChild(prompt);
-            }, 500);
-
-            var text = $(_this).text();
-            text = text.substring(4, text.length);
-            navigator.clipboard.writeText(text).then(
-              function () {},
-              function () {
-                alert("copy failed");
-              }
-            );
-          });
-      },
-      function () {
-        $(this).children(".hljs-prompt").hide();
-      }
-    );
+    hljs.highlightAll();
+    $('pre code').each(function () {
+      const $codeBlock = $(this);
+      
+      const language = $codeBlock.attr('class').match(/language-\w+/);
+      const languageType = language ? language[0].replace('language-', '') : 'Unknown';
+      // build bar: language copy
+      const bar = `<div class="code-prompt"><span class="language">${languageType}</span><button type="button" class="copy">copy</button></div>`;
+      $codeBlock.before(bar);
+    });
+    $('.copy').click(function() {
+      const $button = $(this);
+      const $codeBlock = $button.closest('pre').find('code');
+      const codeText = $codeBlock.text().trim();
+      
+      navigator.clipboard.writeText(codeText).then(function() {
+        $button.text('Success!');
+        setTimeout(function() {
+          $button.text('Copy');
+        }, 1000);
+      }).catch(function(err) {
+        setTimeout(function() {
+          $button.text('Fail!');
+        }, 1000);
+      });
+    });
   });
 });
