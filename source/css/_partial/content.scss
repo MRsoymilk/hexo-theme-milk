@@ -145,14 +145,40 @@
   scrollbar-width: none;
 }
 
-.hljs-prompt {
-  display: none;
-  color: rgba(255, 255, 255, 0.5);
+.code-prompt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
 }
 
-.hljs-prompt:hover {
-  color: rgb(255, 255, 255);
+.language {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
 }
+
+.copy {
+  background-color: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.copy:hover {
+  background-color: #025ab3;
+}
+
+.copy:active {
+  background-color: #034ea2;
+}
+
 
 .ui-resizable-helper {
   border: 1px dotted;
@@ -270,11 +296,6 @@
     background-color: $paginator_a_hover_background_color;
     color: $paginator_a_hover_color;
   }
-}
-
-.fa-angle-down {
-  font-size: x-small;
-  display: none;
 }
 
 .dropdown-content {

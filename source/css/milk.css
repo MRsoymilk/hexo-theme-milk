@@ -294,7 +294,7 @@ details {
 
 #sprite-container {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 90%;
   z-index: 9;
   width: 100%;
@@ -416,13 +416,38 @@ details {
   scrollbar-width: none;
 }
 
-.hljs-prompt {
-  display: none;
-  color: rgba(255, 255, 255, 0.5);
+.code-prompt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
 }
 
-.hljs-prompt:hover {
+.language {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.copy {
+  background-color: #0366d6;
   color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.copy:hover {
+  background-color: #025ab3;
+}
+
+.copy:active {
+  background-color: #034ea2;
 }
 
 .ui-resizable-helper {
@@ -524,11 +549,6 @@ details {
   color: #000000;
 }
 
-.fa-angle-down {
-  font-size: x-small;
-  display: none;
-}
-
 .dropdown-content {
   z-index: 999;
   display: none;
@@ -579,7 +599,6 @@ details {
   overflow-x: hidden;
   height: 100%;
 }
-
 /* cyrillic */
 @font-face {
   font-family: "Bad Script";
