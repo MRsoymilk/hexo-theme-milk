@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .milk-header {
   position: absolute;
   top: 0;
@@ -704,274 +703,35 @@ ul.breadcrumbs li a {
   transition: 0.3s ease;
 }
 
-ul.ascii,
-ul.ascii ul {
-  margin-left: 0;
+.tree {
+  --spacing: 1.5rem;
+  --radius: 10px;
+}
+.tree li {
+  display: block;
+  position: relative;
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+}
+.tree ul {
+  margin-left: calc(var(--radius) - var(--spacing));
   padding-left: 0;
-  list-style: none;
 }
-
-ul.ascii li {
-  margin: 0;
-  padding: 0;
+.tree ul li {
+  border-left: 2px solid #ffa500;
 }
-
-/* level 1 */
-ul.ascii > li::before {
+.tree ul li:last-child {
+  border-color: transparent;
+}
+.tree ul li::before {
   content: "";
-}
-
-/* level 2 */
-ul.ascii > li > ul > li::before {
-  content: "├── ";
-}
-
-ul.ascii > li > ul > li:last-child::before {
-  content: "└── ";
-}
-
-/* level 3 */
-ul.ascii > li > ul > li > ul > li::before {
-  content: "│   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child::before {
-  content: "│   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li::before {
-  content: "    ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child::before {
-  content: "    └── ";
-}
-
-/* level 4 */
-ul.ascii > li > ul > li > ul > li > ul > li::before {
-  content: "│   │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child::before {
-  content: "│   │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li::before {
-  content: "│       ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "│       └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li::before {
-  content: "    │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "    │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "        ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "        └── ";
-}
-
-/* level 5 */
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li::before {
-  content: "│   │   │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li:last-child::before {
-  content: "│   │   │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li::before {
-  content: "│   │       ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "│   │       └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li::before {
-  content: "│       │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "│       │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "│           ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "│           └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li::before {
-  content: "    │   │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li:last-child::before {
-  content: "    │   │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li::before {
-  content: "    │       ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "    │       └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li::before {
-  content: "        │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "        │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "            ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "            └── ";
-}
-
-/* level 6 */
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li > ul > li::before {
-  content: "│   │   │   │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li > ul > li:last-child::before {
-  content: "│   │   │   │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li:last-child > ul > li::before {
-  content: "│   │   │       ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "│   │   │       └── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li > ul > li::before {
-  content: "│   │       │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "│   │       │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "│   │           ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "│   │           └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li > ul > li::before {
-  content: "│       │   │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li > ul > li:last-child::before {
-  content: "│       │   │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li::before {
-  content: "│       │       ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "│       │       └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li::before {
-  content: "│           │   ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "│           │   └── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "│               ├── ";
-}
-
-ul.ascii > li > ul > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "│               └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li > ul > li::before {
-  content: "    │   │   │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li > ul > li:last-child::before {
-  content: "    │   │   │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li:last-child > ul > li::before {
-  content: "    │   │       ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "    │   │       └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li > ul > li::before {
-  content: "    │       │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "    │       │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "    │           ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "    │           └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li > ul > li::before {
-  content: "        │   │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li > ul > li:last-child::before {
-  content: "        │   │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li:last-child > ul > li::before {
-  content: "        │       ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li > ul > li:last-child > ul > li:last-child::before {
-  content: "        │       └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li > ul > li::before {
-  content: "            │   ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li > ul > li:last-child::before {
-  content: "            │   └── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li::before {
-  content: "                ├── ";
-}
-
-ul.ascii > li > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child::before {
-  content: "                └── ";
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / -2);
+  left: -2px;
+  width: calc(var(--spacing) + 2px);
+  height: calc(var(--spacing) + 1px);
+  border: solid #ffa500;
+  border-width: 0 0 2px 2px;
 }
 
 .ffolder {

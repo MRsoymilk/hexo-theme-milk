@@ -217,10 +217,10 @@ $(() => {
     }, 1000);
   });
 
-  // ascii style
+  // tree style
   $(() => {
-    $(".category-list").addClass("ascii");
-    $(".tag-list").addClass("ascii");
+    $(".category-list").addClass("tree");
+    $(".tag-list").addClass("tree");
   });
 
   // tags style
