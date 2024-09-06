@@ -124,7 +124,10 @@
 
     .post-table {
       border: none;
-      margin-top: 50px;
+
+      table {
+        width: 100%;
+      }
 
       .table-title {
         font-weight: bold;
@@ -137,6 +140,7 @@
       }
       th:first-child {
         border-right: 1px solid #a8a8a8;
+        width: 1px;
       }
 
       td {
@@ -145,6 +149,7 @@
       td:first-child {
         color: #a8a8a8;
         border-right: 1px solid #a8a8a8;
+        width: 1px;
       }
     }
   }

@@ -104,7 +104,9 @@
 }
 .milk-body .desktop-content .post-table {
   border: none;
-  margin-top: 50px;
+}
+.milk-body .desktop-content .post-table table {
+  width: 100%;
 }
 .milk-body .desktop-content .post-table .table-title {
   font-weight: bold;
@@ -117,6 +119,7 @@
 }
 .milk-body .desktop-content .post-table th:first-child {
   border-right: 1px solid #a8a8a8;
+  width: 1px;
 }
 .milk-body .desktop-content .post-table td {
   color: #ffffff;
@@ -124,6 +127,7 @@
 .milk-body .desktop-content .post-table td:first-child {
   color: #a8a8a8;
   border-right: 1px solid #a8a8a8;
+  width: 1px;
 }
 .milk-body .desktop-category {
   background-color: rgba(0, 0, 0, 0.675);
@@ -155,22 +159,34 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: url("/cursor/normal.gif"), auto !important;
+}
+
+a:hover {
+  cursor: url("/cursor/link.gif"), auto !important;
+}
+
+button:hover {
+  cursor: url("/cursor/hand.gif"), auto !important;
+}
+
+a:active, button:active, input:active, select:active, textarea:active {
+  cursor: url("/cursor/wait.gif"), auto !important;
+}
+
+textarea, input {
+  cursor: url("/cursor/beam.gif"), auto !important;
 }
 
 html,
 body {
   font-family: "Bad Script";
   font-size: 25px !important;
-  cursor: url("/cursor/normal.cur"), auto;
   background-image: url("/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   color: #ffa500;
-}
-
-a:hover {
-  cursor: url("/cursor/link.cur"), auto;
 }
 
 a {
