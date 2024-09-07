@@ -28,24 +28,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  color: $font_color;
 }
 
 a {
   text-decoration: none;
-
-  &:link {
-    color: $a_link_color;
-  }
-  &:visited {
-    color: $a_visited_color;
-  }
   &:hover {
-    color: $a_hover_color;
     text-decoration: underline;
-  }
-  &:active {
-    color: $a_active_color;
   }
 }
 
@@ -64,66 +52,22 @@ dl {
 h1 {
   text-align: center;
 }
-
-h2 {
-  margin: 20px;
-  &::before {
-    font-size: 20px;
-    content: "h2. ";
-    color: $h_prompt_color;
-  }
-}
-
-h3 {
-  margin: 15px;
-  &::before {
-    font-size: 18px;
-    content: "h3. ";
-    color: $h_prompt_color;
-  }
-}
-
-h4 {
-  margin: 10px;
-  &::before {
-    font-size: 16px;
-    content: "h4. ";
-    color: $h_prompt_color;
-  }
-}
-
-h5 {
-  margin: 5px;
-  &:before {
-    font-size: 14px;
-    content: "h5. ";
-    color: $h_prompt_color;
-  }
-}
-
-h6 {
-  &::before {
-    font-size: 12px;
-    content: "h6. ";
-    color: $h_prompt_color;
+// (h_, margin, font-size)
+@each $level, $size, $margin in (h2, 20px, 20px), (h3, 18px, 15px), (h4, 16px, 10px), (h5, 14px, 5px), (h6, 12px, 0px) {
+  #{$level} {
+    margin: $margin;
+    &::before {
+      font-size: $size;
+      content: "#{$level}. ";
+    }
   }
 }
 
 code {
-  color: $line_code_color;
-  background-color: $line_code_background;
   padding: 0 3px;
   font-size: 95%;
-  border: solid red 1px;
+  border: solid 1px;
   border-radius: 0.3rem;
-}
-
-blockquote {
-  text-align: center;
-  font-style: italic;
-  line-height: 2em;
-  border-left: solid 5px;
-  background: rgba(9, 8, 8, 0.9)
 }
 
 details {
@@ -137,8 +81,6 @@ details {
   z-index: 99;
   border-radius: 5px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: $font_color;
   width: 100px;
   font-size: $font_size;
   text-align: center;

@@ -8,7 +8,6 @@
   .header-nav {
     display: block;
     width: 100%;
-    background-color: $background_color;
     height: inherit;
   }
 
@@ -21,30 +20,10 @@
 
     li {
       display: inline-block;
-      //line-height: $header_height;
-    }
-
-    li:hover {
-      color: #fff;
-      background-color: #2e394a;
-
-      a {
-        color: #fff;
-      }
     }
 
     a {
-      color: #a8a8a8;
       text-decoration: none;
-    }
-  }
-
-  .nav-menu .active {
-    color: #000;
-    background-color: #ffa500;
-
-    a {
-      color: #000;
     }
   }
 
@@ -110,7 +89,6 @@
   overflow: hidden;
 
   .desktop-content {
-    background-color: $background_color;
     position: absolute;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -118,8 +96,7 @@
     width: $content_width - 0.5%;
 
     &:hover {
-      border: $win_hover_border_width $win_hover_border_style
-        $win_hover_border_color;
+      border: $win_hover_border_width $win_hover_border_style;
     }
 
     .post-table {
@@ -136,26 +113,22 @@
         margin-top: 10px;
       }
       th {
-        border-bottom: 1px solid #a8a8a8;
+        border-bottom: 1px solid;
       }
       th:first-child {
-        border-right: 1px solid #a8a8a8;
+        border-right: 1px solid;
         width: 1px;
       }
 
-      td {
-        color: $post_table_title_font_color;
-      }
+
       td:first-child {
-        color: #a8a8a8;
-        border-right: 1px solid #a8a8a8;
+        border-right: 1px solid;
         width: 1px;
       }
     }
   }
 
   .desktop-category {
-    background-color: $background_color;
     position: absolute;
     left: $content_width;
     height: $category_height - 1%;
@@ -163,13 +136,11 @@
     overflow-y: scroll;
 
     &:hover {
-      border: $win_hover_border_width $win_hover_border_style
-        $win_hover_border_color;
+      border: $win_hover_border_width $win_hover_border_style;
     }
   }
 
   .desktop-tag {
-    background-color: $background_color;
     position: absolute;
     left: $content_width;
     top: $category_height;
@@ -178,8 +149,7 @@
     overflow-y: scroll;
 
     &:hover {
-      border: $win_hover_border_width $win_hover_border_style
-        $win_hover_border_color;
+      border: $win_hover_border_width $win_hover_border_style;
     }
 
     .list-cloud {

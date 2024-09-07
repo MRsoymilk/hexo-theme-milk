@@ -1,0 +1,204 @@
+.milk-header .header-nav {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.milk-header .nav-menu li:hover {
+  color: #f5e0dc;
+  background-color: #45475a;
+}
+.milk-header .nav-menu li:hover a {
+  color: #f5e0dc;
+}
+.milk-header .nav-menu a {
+  color: #f2cdcd;
+}
+.milk-header .nav-menu .active {
+  color: #f2cdcd;
+  background-color: #f38ba8;
+}
+.milk-header .nav-menu .active a {
+  color: #f2cdcd;
+}
+
+.milk-body .desktop-content {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.milk-body .desktop-content:hover {
+  border-color: #89dceb;
+}
+.milk-body .desktop-content .post-table th {
+  border-bottom-color: #a6e3a1;
+}
+.milk-body .desktop-content .post-table th:first-child {
+  border-right-color: #a6e3a1;
+  border-bottom-color: #a6e3a1;
+}
+.milk-body .desktop-content .post-table td {
+  color: #f2cdcd;
+}
+.milk-body .desktop-content .post-table td:first-child {
+  color: #f2cdcd;
+  border-right-color: #a6e3a1;
+}
+.milk-body .desktop-category {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.milk-body .desktop-category:hover {
+  border-color: #89dceb;
+}
+.milk-body .desktop-tag {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.milk-body .desktop-tag:hover {
+  border-color: #89dceb;
+}
+
+html,
+body {
+  color: #f2cdcd;
+}
+
+a:link {
+  color: #89dceb;
+}
+a:visited {
+  color: #f38ba8;
+}
+a:hover {
+  color: #b4befe;
+}
+a:active {
+  color: #a6e3a1;
+}
+
+h2::before, h3::before, h4::before, h5::before, h6::before {
+  color: #cba6f7;
+}
+
+code {
+  border-color: #f9e2af;
+}
+
+details {
+  border-color: #f5c2e7;
+}
+
+.Tips {
+  background-color: #cba6f7;
+  color: #f2cdcd;
+}
+
+.draggable-toc {
+  background-color: rgba(32, 34, 46, 0.9);
+  border-color: rgba(32, 34, 46, 0.9);
+}
+.draggable-toc .toc-title {
+  color: #000000;
+  background-color: #ec67c9;
+}
+.draggable-toc .active {
+  color: rgba(32, 34, 46, 0.9);
+}
+.draggable-toc .progress-container {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.draggable-toc .progress-container .progress-bar {
+  background-color: #fab387;
+}
+
+.post table {
+  color: #f2cdcd;
+  border-color: #a6e3a1;
+}
+.post table thead {
+  color: #000000;
+  background-color: #f5c2e7;
+}
+
+.post-content {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+
+.code-prompt {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+
+.language {
+  color: #f2cdcd;
+}
+
+.copy {
+  color: #000000;
+  background-color: #b4befe;
+}
+
+.copy:hover {
+  background-color: #45475a;
+}
+
+.copy:active {
+  background-color: #45475a;
+}
+
+.win .win-title {
+  color: #f2cdcd;
+  background-color: rgba(32, 34, 46, 0.9);
+}
+.win .win-body {
+  background-color: rgba(32, 34, 46, 0.9);
+}
+
+.paginator a {
+  color: #000000;
+  background-color: #89dceb;
+}
+.paginator a.active {
+  background-color: rgba(32, 34, 46, 0.9);
+  color: #f9e2af;
+}
+.paginator a:hover:not(.active) {
+  background-color: rgba(32, 34, 46, 0.9);
+  color: #f9e2af;
+}
+
+.dropdown-content {
+  background-color: rgba(32, 34, 46, 0.5);
+}
+
+#vcomments {
+  color: #f2cdcd;
+  background-color: rgba(0, 0, 0, 0.64);
+}
+
+ul.breadcrumbs li:last-child a {
+  color: #000000;
+}
+ul.breadcrumbs li:last-child:hover:before {
+  border-left-color: #89dceb;
+}
+ul.breadcrumbs li:last-child:hover a {
+  color: #050505;
+  background-color: #89dceb;
+}
+ul.breadcrumbs li:before {
+  border-left-color: #f2cdcd;
+}
+ul.breadcrumbs li:after {
+  border-left-color: #f38ba8;
+}
+ul.breadcrumbs li.active a {
+  color: #f2cdcd;
+  background-color: #b4befe;
+}
+ul.breadcrumbs li a {
+  color: #000000;
+  background-color: #f2cdcd;
+}
+
+.tree ul li {
+  border-left-color: #a6e3a1;
+}
+.tree ul li::before {
+  border-color: #a6e3a1;
+}
+
+/*# sourceMappingURL=default.css.map */

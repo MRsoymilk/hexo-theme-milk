@@ -41,23 +41,11 @@ ul.breadcrumbs {
     list-style: none;
     list-style-image: none;
     @include inline;
-    //border-left: 1px solid $breadrumb_border_color;
     transition: 0.3s ease;
-
-    &:last-child {
-      a {
-        color: $breadrumb_font_color;
-      }
-    }
 
     &:last-child:hover {
       &:before {
-        border-left: 10px solid $breadrumb_font_color;
-      }
-
-      a {
-        color: $breadrumb_background_color;
-        background-color: $breadrumb_font_color;
+        border-left: 10px solid;
       }
     }
 
@@ -65,11 +53,12 @@ ul.breadcrumbs {
       content: "";
       position: absolute;
       right: -9px;
-      top: -1px;
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 20;
-      border-left: 10px solid $breadrumb_background_color;
-      border-top: 22px solid transparent;
-      border-bottom: 22px solid transparent;
+      border-left: 10px solid;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
       transition: 0.3s ease;
     }
 
@@ -77,18 +66,12 @@ ul.breadcrumbs {
       content: "";
       position: absolute;
       right: -10px;
-      top: -1px;
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 10;
-      border-left: 10px solid $breadrumb_border_color;
-      border-top: 22px solid transparent;
-      border-bottom: 22px solid transparent;
-    }
-
-    &.active {
-      a {
-        color: $breadrumb_font_color;
-        background-color: $breadrumb_background_color;
-      }
+      border-left: 10px solid;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
     }
 
     &.first {
@@ -102,13 +85,9 @@ ul.breadcrumbs {
     }
 
     &.last {
-      &:before {
+      &:before, &:after {
         display: none;
       }
-      &:after {
-        display: none;
-      }
-
       a {
         padding-right: 20px;
         border-radius: 0px 40px 40px 0px;
@@ -119,11 +98,8 @@ ul.breadcrumbs {
       display: block;
       font-size: 20px;
       line-height: 40px;
-      color: #757575;
       padding: 0px 15px 0px 25px;
       text-decoration: none;
-      background-color: $breadrumb_background_color;
-      //border: 1px solid $breadrumb_border_color;
       white-space: nowrap;
       overflow: hidden;
       transition: 0.3s ease;
@@ -148,7 +124,7 @@ ul.breadcrumbs {
     padding-left: 0;
 
     li {
-      border-left: 2px solid $font_color;
+      border-left: 2px solid;
 
       &:last-child {
         border-color: transparent;
@@ -162,7 +138,7 @@ ul.breadcrumbs {
         left: -2px;
         width: calc(var(--spacing) + 2px);
         height: calc(var(--spacing) + 1px);
-        border: solid $font_color;
+        border: solid;
         border-width: 0 0 2px 2px;
       }
     }

@@ -1,0 +1,204 @@
+.milk-header .header-nav {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+.milk-header .nav-menu li:hover {
+  color: #00bcd4;
+  background-color: #f1f1f1;
+}
+.milk-header .nav-menu li:hover a {
+  color: #00bcd4;
+}
+.milk-header .nav-menu a {
+  color: #333333;
+}
+.milk-header .nav-menu .active {
+  color: #333333;
+  background-color: #ff4081;
+}
+.milk-header .nav-menu .active a {
+  color: #333333;
+}
+
+.milk-body .desktop-content {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+.milk-body .desktop-content:hover {
+  border-color: #00bcd4;
+}
+.milk-body .desktop-content .post-table th {
+  border-bottom-color: #00bcd4;
+}
+.milk-body .desktop-content .post-table th:first-child {
+  border-right-color: #00bcd4;
+  border-bottom-color: #00bcd4;
+}
+.milk-body .desktop-content .post-table td {
+  color: #333333;
+}
+.milk-body .desktop-content .post-table td:first-child {
+  color: #333333;
+  border-right-color: #00bcd4;
+}
+.milk-body .desktop-category {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+.milk-body .desktop-category:hover {
+  border-color: #00bcd4;
+}
+.milk-body .desktop-tag {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+.milk-body .desktop-tag:hover {
+  border-color: #00bcd4;
+}
+
+html,
+body {
+  color: #333333;
+}
+
+a:link {
+  color: #00bcd4;
+}
+a:visited {
+  color: #ff4081;
+}
+a:hover {
+  color: #ff4081;
+}
+a:active {
+  color: #00bcd4;
+}
+
+h2::before, h3::before, h4::before, h5::before, h6::before {
+  color: #ff4081;
+}
+
+code {
+  border-color: #333333;
+}
+
+details {
+  border-color: #ff4081;
+}
+
+.Tips {
+  background-color: #ff4081;
+  color: #333333;
+}
+
+.draggable-toc {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.draggable-toc .toc-title {
+  color: #333333;
+  background-color: #ff4081;
+}
+.draggable-toc .active {
+  color: #ffffff;
+}
+.draggable-toc .progress-container {
+  background-color: #ffffff;
+}
+.draggable-toc .progress-container .progress-bar {
+  background-color: #00bcd4;
+}
+
+.post table {
+  color: #333333;
+  border-color: #00bcd4;
+}
+.post table thead {
+  color: #333333;
+  background-color: #ff4081;
+}
+
+.post-content {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+
+.code-prompt {
+  background-color: #ffffff;
+}
+
+.language {
+  color: #333333;
+}
+
+.copy {
+  color: #333333;
+  background-color: #ff4081;
+}
+
+.copy:hover {
+  background-color: #f1f1f1;
+}
+
+.copy:active {
+  background-color: #f1f1f1;
+}
+
+.win .win-title {
+  color: #333333;
+  background-color: #ffffff;
+}
+.win .win-body {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}
+
+.paginator a {
+  color: #333333;
+  background-color: #00bcd4;
+}
+.paginator a.active {
+  background-color: #ffffff;
+  color: #ff4081;
+}
+.paginator a:hover:not(.active) {
+  background-color: #ffffff;
+  color: #ff4081;
+}
+
+.dropdown-content {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#vcomments {
+  color: #333333;
+  background-color: rgba(0, 0, 0, 0.64);
+}
+
+ul.breadcrumbs li:last-child a {
+  color: #ff4081;
+}
+ul.breadcrumbs li:last-child:hover:before {
+  border-left-color: #ff4081;
+}
+ul.breadcrumbs li:last-child:hover a {
+  color: #ffffff;
+  background-color: #ff4081;
+}
+ul.breadcrumbs li:before {
+  border-left-color: #333333;
+}
+ul.breadcrumbs li:after {
+  border-left-color: #ff4081;
+}
+ul.breadcrumbs li.active a {
+  color: #333333;
+  background-color: #ff4081;
+}
+ul.breadcrumbs li a {
+  color: #ff4081;
+  background-color: #333333;
+}
+
+.tree ul li {
+  border-left-color: #00bcd4;
+}
+.tree ul li::before {
+  border-color: #00bcd4;
+}
+
+/*# sourceMappingURL=toothpaste.css.map */

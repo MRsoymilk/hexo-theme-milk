@@ -1,0 +1,237 @@
+.milk-header {
+    .header-nav {
+      background-color: $nav_bg_color;
+    }
+    .nav-menu {
+      li:hover {
+        color: $nav_menu_hover_fg_color;
+        background-color: $nav_menu_hover_bg_color;
+        a {
+          color: $nav_menu_hover_fg_color;
+        }
+      }
+      a {
+        color: $nav_menu_fg_color;
+      }
+    }
+    .nav-menu .active {
+      color: $nav_menu_active_fg_color;
+      background-color: $nav_menu_active_bg_color;
+      a {
+        color: $nav_menu_active_fg_color;
+      }
+    }
+  }
+  
+  .milk-body {
+    .desktop-content {
+      background-color: $desktop_content_bg_color;
+      &:hover {
+        border-color: $win_hover_border_color;
+      }
+      .post-table {
+        th {
+          border-bottom-color: $post_table_border_color;
+        }
+        th:first-child {
+          border-right-color: $post_table_border_color;
+          border-bottom-color: $post_table_border_color;
+        }
+        td {
+          color: $post_table_fg_color;
+        }
+        td:first-child {
+          color: $post_table_fg_color;
+          border-right-color: $post_table_border_color;
+        }
+      }
+    }
+    .desktop-category {
+      background-color: $desktop_category_bg_color;
+      &:hover {
+        border-color: $win_hover_border_color;
+      }
+    }
+    .desktop-tag {
+      background-color: $desktop_tag_bg_color;
+      &:hover {
+        border-color: $win_hover_border_color;
+      }
+    }
+  }
+  
+  html,
+  body {
+    color: $font_color;
+  }
+  
+  a {
+    &:link {
+      color: $a_link_color;
+    }
+    &:visited {
+      color: $a_visited_color;
+    }
+    &:hover {
+      color: $a_hover_color;
+    }
+    &:active {
+      color: $a_active_color;
+    }
+  }
+  
+  h2, h3, h4, h5, h6 {
+    &::before {
+      color: $h_prompt_color;
+    }
+  }
+  
+  code {
+    border-color: $code_border_color;
+  }
+  
+  details {
+    border-color: $details_border_color;
+  }
+  
+  .Tips {
+    background-color: $Tips_bg_color;
+    color: $Tips_fg_color;
+  }
+  
+  .draggable-toc {
+    background-color: $draggable_toc_bg_color;
+    border-color: $draggable_toc_border_color;
+    .toc-title {
+      color: $draggable_toc_title_fg_color;
+      background-color: $draggable_toc_title_bg_color;
+    }
+    .active {
+      color: $draggable_toc_active_fg_color;
+    }
+    .progress-container {
+      background-color: $draggable_toc_progress_container_bg_color;
+      .progress-bar {
+        background-color: $draggable_toc_progress_bar_bg_color;
+      }
+    }
+  }
+  
+  .post {
+    table {
+      color: $post_table_fg_color;
+      border-color: $post_table_border_color;
+      thead {
+        color: $post_table_head_fg_color;
+        background-color: $post_table_head_bg_color;
+      }
+    }
+  }
+  
+  .post-content {
+    background-color: $post_content_bg_color;
+  }
+  
+  .code-prompt {
+    background-color: $code_prompt_bg_color;
+  }
+  
+  .language {
+    color: $language_fg_color;
+  }
+  
+  .copy {
+    color: $copy_fg_color;
+    background-color: $copy_bg_color;
+  }
+  
+  .copy:hover {
+    background-color: $copy_hover_bg_color;
+  }
+  
+  .copy:active {
+    background-color: $copy_active_bg_color;
+  }
+  
+  .win {
+    .win-title {
+      color: $win_title_fg_color;
+      background-color: $win_title_bg_color;
+    }
+    .win-body {
+      background-color: $win_body_bg_color;
+    }
+  }
+  
+  .paginator {
+    a {
+      color: $paginator_fg_color;
+      background-color: $paginator_bg_color;
+    }
+  
+    a.active {
+      background-color: $paginator_active_fg_color;
+      color: $paginator_active_bg_color;
+    }
+  
+    a:hover:not(.active) {
+      background-color: $paginator_hover_fg_color;
+      color: $paginator_hover_bg_color;
+    }
+  }
+  .dropdown-content {
+    background-color: $dropdown_content_bg_color;
+  }
+  
+  #vcomments {
+    color: $vcomments_fg_color;
+    background-color: $vcomments_bg_color;
+  }
+  
+  // breadrumb
+  ul.breadcrumbs {
+    li {
+      &:last-child {
+        a {
+          color: $breadrumb_fg_color;
+        }
+      }
+      &:last-child:hover {
+        &:before {
+          border-left-color: $breadrumb_hover_bg_color;
+        }
+        a {
+          color: $breadrumb_hover_fg_color;
+          background-color: $breadrumb_hover_bg_color;
+        }
+      }
+      &:before {
+        border-left-color: $breadrumb_bg_color;
+      }
+      &:after {
+        border-left-color: $breadrumb_border_color;
+      }
+      &.active {
+        a {
+          color: $breadrumb_active_fg_color;
+          background-color: $breadrumb_active_bg_color;
+        }
+      }
+      a {
+        color: $breadrumb_fg_color;
+        background-color: $breadrumb_bg_color;
+      }
+    }
+  }
+  
+  // tree view
+  .tree {
+    ul {
+      li {
+        border-left-color: $tree_ul_li_color;
+        &::before {
+          border-color: $tree_ul_li_color;
+        }
+      }
+    }
+  }

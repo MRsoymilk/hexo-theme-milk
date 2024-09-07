@@ -17,8 +17,7 @@
 .draggable-toc {
   position: absolute;
   z-index: 9;
-  background-color: $background_color;
-  border: $draggable_toc_border_width solid $draggable_toc_border_color;
+  border: $draggable_toc_border_width solid;
   max-width: $draggable_toc_max_width;
   min-width: $draggable_toc_min_width;
   max-height: 100%;
@@ -27,8 +26,6 @@
   .toc-title {
     padding: 10px;
     cursor: move;
-    background-color: $toc_title_background_color;
-    color: $toc_title_color;
   }
 
   .toc-level-2 {
@@ -67,18 +64,11 @@
     }
   }
 
-  .active {
-    color: $toc_highlight;
-  }
-
   .progress-container {
     width: 100%;
     height: $progress_bar_height;
-    background-color: $background_color;
-
     .progress-bar {
       height: $progress_bar_height;
-      background-color: $progress_bar_highlight;
       width: 0%;
     }
   }
@@ -113,17 +103,13 @@
   }
 
   table {
-    color: $post_table_color;
     text-align: center;
-
-    border: $post_table_border_width solid $post_table_border_color;
+    border: $post_table_border_width solid;
     width: 100%;
     border-radius: 0.25rem;
 
     thead {
       border: none;
-      color: $post_table_thead_color;
-      background-color: $post_table_thead_background_color;
     }
   }
 }
@@ -133,7 +119,6 @@
   height: 100%;
   margin-left: 15%;
   margin-right: 15%;
-  background-color: $background_color;
 }
 
 .post-content::-webkit-scrollbar {
@@ -149,7 +134,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000;
   padding: 5px 10px;
   border-radius: 4px;
   margin-bottom: 5px;
@@ -158,27 +142,15 @@
 .language {
   font-size: 14px;
   font-weight: bold;
-  color: #ffffff;
 }
 
 .copy {
-  background-color: #0366d6;
-  color: white;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 12px;
 }
-
-.copy:hover {
-  background-color: #025ab3;
-}
-
-.copy:active {
-  background-color: #034ea2;
-}
-
 
 .ui-resizable-helper {
   border: 1px dotted;
@@ -191,8 +163,6 @@
   margin-right: auto;
 
   .win-title {
-    background-color: $archive_title_background_color;
-    color: $archive_title_color;
     min-height: 50px;
     max-height: 50px;
     line-height: 50px;
@@ -201,10 +171,8 @@
 
   .win-body {
     height: 90%;
-    background-color: $background_color;
     word-wrap: break-word;
     word-break: break-all;
-    //overflow-y: scroll;
   }
 
   .win-body::-webkit-scrollbar {
@@ -263,38 +231,24 @@
   margin-top: 50px;
   text-align: center;
 
-  .page-number {
-    padding: 16px 32px;
-  }
-
-  .space {
+  .page-number,
+  .space,
+  a,
+  a.active {
     padding: 16px 32px;
   }
 
   a {
-    color: $paginator_a_color;
-    background-color: $paginator_background_color;
-    padding: 16px 32px;
     text-decoration: none;
-    transition: backgournd-color 0.3s;
-  }
+    transition: 0.3s;
 
-  a:first-child {
-    border-left: none;
-  }
-  a:last-child {
-    border-right: none;
-  }
+    &:first-child {
+      border-left: none;
+    }
 
-  a.active {
-    background-color: $background_color;
-    color: $paginator_a_active_color;
-    padding: 16px 32px;
-  }
-
-  a:hover:not(.active) {
-    background-color: $paginator_a_hover_background_color;
-    color: $paginator_a_hover_color;
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 
@@ -306,7 +260,6 @@
   min-width: $dropdown_content_min_width;
   width: auto;
   overflow: auto;
-  background-color: $background_color;
   text-align: center;
   list-style: none;
 
@@ -343,6 +296,5 @@
 }
 
 #vcomments {
-  background-color: $vcomments_background;
   margin-top: 20px;
 }

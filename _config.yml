@@ -26,6 +26,7 @@ social:
 
 # code highlight
 highlight: railscasts
+color_scheme: default
 
 # date style
 date:
