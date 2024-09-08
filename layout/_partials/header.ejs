@@ -35,8 +35,18 @@
           <% } %>
         </ul>
         <ul>
-          <li><span>Power by <a href="https://hexo.io/">Hexo</a></span></li>
+          <li><span>Powered by <a href="https://hexo.io/">Hexo</a></span></li>
         </ul>
+        <div>
+          <label for="scheme-select">Color scheme: </label>
+          <select id="scheme-select">
+            <option value='<%= theme.color_scheme %>'><%= theme.color_scheme %></option>
+          </select>
+          <label for="highlight-select">Code highlight: </label>
+          <select id="highlight-select">
+            <option value='<%= theme.highlight %>'><%= theme.highlight %></option>
+          </select>
+        </div>
       </div>
     </span>
   </nav>

@@ -23,6 +23,10 @@
   max-height: 100%;
   overflow-y: scroll;
 
+  .active {
+    text-decoration: underline;
+  }
+
   .toc-title {
     padding: 10px;
     cursor: move;

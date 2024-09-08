@@ -6,7 +6,7 @@
 <%# fontawesome %>
 <%- css('/lib/fontawesome/css/all.min.css') %>
 <%# highlight %>
-<%- css('/lib/highlight/' + theme.highlight) %>
+<%- css({id: 'highlight-link', href: '/lib/highlight/style/' + theme.highlight}) %>
 <%# self %>
 <%- css('/css/milk') %>
-<%- css('/css/theme/' + theme.color_scheme) %>
+<%- css({ id: 'shceme-link', href: '/css/theme/' + theme.color_scheme }) %>

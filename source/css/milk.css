@@ -278,6 +278,9 @@ details {
   max-height: 100%;
   overflow-y: scroll;
 }
+.draggable-toc .active {
+  text-decoration: underline;
+}
 .draggable-toc .toc-title {
   padding: 10px;
   cursor: move;

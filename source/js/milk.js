@@ -119,8 +119,16 @@ $(() => {
           break;
         }
       }
-      $(".toc a span").removeClass("active");
-      $('.toc a[href="#' + target + '"] span').addClass("active");
+      $(".toc-text").each(function () {
+        const text = $(this).text().trim();
+        if (text.includes(target)) {
+          // Remove 'liactive' from all .toc-item elements
+          $(".toc-item").removeClass("active");
+          // Add 'liactive' to the matched li
+          $(this).closest("li").addClass("active");
+          return false; // Exit loop after finding the first match
+        }
+      });
     });
   }
 
@@ -307,23 +315,152 @@ $(() => {
           link.attr("href", newPath);
         }
       }
-    })
+    });
 
     // change img path as http://host:port/img.typ to http://host:port/path/to/your/image/file
     $(".desktop-content ul li").each(function () {
-      var postSourceHref = $(this).find('#post-source li:last-child a').attr('href');
-      $(this).find('img').each(function () {
+      var postSourceHref = $(this)
+        .find("#post-source li:last-child a")
+        .attr("href");
+      $(this)
+        .find("img")
+        .each(function () {
           var img = $(this);
-          var imgSrc = img.attr('src');
+          var imgSrc = img.attr("src");
           if (imgSrc && imgSrc.startsWith("/")) {
-              var newSrc = location.href.slice(0, -1) + postSourceHref.slice(0, -1) + imgSrc;
-              img.attr('src', newSrc);
-              var link = img.closest('a');
-              if (link.length > 0) {
-                  link.attr('href', newSrc);
-              }
+            var newSrc =
+              location.href.slice(0, -1) + postSourceHref.slice(0, -1) + imgSrc;
+            img.attr("src", newSrc);
+            var link = img.closest("a");
+            if (link.length > 0) {
+              link.attr("href", newSrc);
+            }
           }
-      });
+        });
+    });
   });
+
+  // theme
+  $(() => {
+    const schemes = [
+      "ayu-mirage",
+      "charcoal",
+      "cobalt",
+      "dark-graphite",
+      "default",
+      "dieci",
+      "dracula",
+      "gotham",
+      "lighthouse",
+      "nord",
+      "panic",
+      "solarized-dark",
+      "toothpaste",
+    ];
+
+    const schemeSelect = $("#scheme-select");
+
+    schemes.forEach(function (scheme) {
+      schemeSelect.append(`<option value="${scheme}">${scheme}</option>`);
+    });
+
+    schemeSelect.on("change", function () {
+      const selectedScheme = $(this).val();
+      console.log(selectedScheme);
+      $("#shceme-link").attr("href", "/css/theme/" + selectedScheme + ".css");
+    });
+
+    const highlights = [
+      "1c-light",
+      "a11y-dark",
+      "a11y-light",
+      "agate",
+      "androidstudio",
+      "an-old-hope",
+      "arduino-light",
+      "arta",
+      "ascetic",
+      "atom-one-dark",
+      "atom-one-dark-reasonable",
+      "atom-one-light",
+      "brown-paper",
+      "codepen-embed",
+      "color-brewer",
+      "dark",
+      "default",
+      "devibeans",
+      "docco",
+      "far",
+      "felipec",
+      "foundation",
+      "github",
+      "github-dark",
+      "github-dark-dimmed",
+      "gml",
+      "googlecode",
+      "gradient-dark",
+      "gradient-light",
+      "grayscale",
+      "hybrid",
+      "idea",
+      "intellij-light",
+      "ir-black",
+      "isbl-editor-dark",
+      "isbl-editor-light",
+      "kimbie-dark",
+      "kimbie-light",
+      "lightfair",
+      "lioshi",
+      "magula",
+      "mono-blue",
+      "monokai",
+      "monokai-sublime",
+      "night-owl",
+      "nnfx-dark",
+      "nnfx-light",
+      "nord",
+      "obsidian",
+      "panda-syntax-dark",
+      "panda-syntax-light",
+      "paraiso-dark",
+      "paraiso-light",
+      "pojoaque",
+      "purebasic",
+      "qtcreator-dark",
+      "qtcreator-light",
+      "railscasts",
+      "rainbow",
+      "routeros",
+      "school-book",
+      "shades-of-purple",
+      "srcery",
+      "stackoverflow-dark",
+      "stackoverflow-light",
+      "sunburst",
+      "tokyo-night-dark",
+      "tokyo-night-light",
+      "tomorrow-night-blue",
+      "tomorrow-night-bright",
+      "vs2015",
+      "vs",
+      "xcode",
+      "xt256",
+    ];
+    const highlightSelect = $("#highlight-select");
+
+    highlights.forEach(function (highlight) {
+      highlightSelect.append(
+        `<option value="${highlight}">${highlight}</option>`
+      );
+    });
+
+    highlightSelect.on("change", function () {
+      const highlightededScheme = $(this).val();
+      console.log(highlightededScheme);
+      $("#highlight-link").attr(
+        "href",
+        "/lib/highlight/style/" + highlightededScheme + ".css"
+      );
+    });
   });
 });
