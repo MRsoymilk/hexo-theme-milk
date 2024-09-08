@@ -26,12 +26,6 @@ $(() => {
       minHeight: 50,
     });
   });
-  // use fancybox to show pictures
-  $("img").each(function (index) {
-    var title = ' data-caption="' + $(this).attr("alt") + '"';
-    var source = ' href="' + $(this).attr("src") + '"';
-    $(this).wrap("<a data-fancybox" + title + source + "></a>");
-  });
 
   // dragable
   $(() => {
@@ -290,46 +284,46 @@ $(() => {
 
   // image
   $(() => {
-    // desktop content
-    // /path/to/your/image/file
-    $(".desktop-content ul li img").each(function () {
-      var postSourceHref = $("#post-source li:last-child a").attr("href");
-      if (postSourceHref) {
-        $(".post-table img").each(function () {
-          var img = $(this);
-          var imgSrc = img.attr("src");
-          if (imgSrc.startsWith("/")) {
-            var newSrc = postSourceHref.replace(/\/$/, "") + imgSrc;
-            img.attr("src", newSrc);
-            var link = img.closest("a");
-            if (link.length > 0) {
-              link.attr("href", newSrc);
-            }
-          }
-        });
-      }
+    $("img").each(function (index) {
+      // use fancybox to show image
+      var title = ' data-caption="' + $(this).attr("alt") + '"';
+      var source = ' href="' + $(this).attr("src") + '"';
+      $(this).wrap("<a data-fancybox" + title + source + "></a>");
     });
-    // hexo server
-    // http://localhost/path/to/your/image/file
-    var currentUrl = window.location.href;
-    if (currentUrl.includes("localhost")) {
-      $("img").each(function () {
-        var img = $(this);
-        var imgSrc = img.attr("src");
 
-        // judge /img.png
-        var slashCount = (imgSrc.match(/\//g) || []).length;
-
-        if (slashCount === 1 && currentUrl.includes("localhost")) {
-          var newPath =
-            currentUrl.replace(/[^\/]+$/, "") + imgSrc.replace("/", "");
-          img.attr("src", newPath);
-          var link = img.closest("a");
-          if (link.length > 0) {
-            link.attr("href", newPath);
-          }
+    // change img path /img.type to http://host:port/path/to/your/img.type
+    $("#post-content img").each(function (index) {
+      var img = $(this);
+      var imgSrc = img.attr("src");
+      // judge /img.type
+      var currentUrl = window.location.href;
+      var slashCount = (imgSrc.match(/\//g) || []).length;
+      if (slashCount === 1) {
+        var newPath =
+          currentUrl.replace(/[^\/]+$/, "") + imgSrc.replace("/", "");
+        img.attr("src", newPath);
+        var link = img.closest("a");
+        if (link.length > 0) {
+          link.attr("href", newPath);
         }
+      }
+    })
+
+    // change img path as http://host:port/img.typ to http://host:port/path/to/your/image/file
+    $(".desktop-content ul li").each(function () {
+      var postSourceHref = $(this).find('#post-source li:last-child a').attr('href');
+      $(this).find('img').each(function () {
+          var img = $(this);
+          var imgSrc = img.attr('src');
+          if (imgSrc && imgSrc.startsWith("/")) {
+              var newSrc = location.href.slice(0, -1) + postSourceHref.slice(0, -1) + imgSrc;
+              img.attr('src', newSrc);
+              var link = img.closest('a');
+              if (link.length > 0) {
+                  link.attr('href', newSrc);
+              }
+          }
       });
-    }
+  });
   });
 });
