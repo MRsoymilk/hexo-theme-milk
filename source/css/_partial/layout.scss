@@ -4,74 +4,64 @@
   height: $header_height;
   line-height: $header_height;
   width: 100%;
-
   .header-nav {
     display: block;
     width: 100%;
     height: inherit;
   }
-
   .nav-menu {
     display: inline-block;
     overflow: auto;
     white-space: nowrap;
-    max-width: $header_menu_max_width - 1%;
+    max-width: calc($header_menu_max_width - 1%);
     height: inherit;
-
     li {
       display: inline-block;
     }
-
     a {
       text-decoration: none;
     }
+    // Hide scrollbars
+    & {
+      -ms-overflow-style: none; // IE and Edge
+      scrollbar-width: none; // Firefox
+    }
+    &::-webkit-scrollbar {
+      display: none; // Webkit browsers
+    }
   }
-
-  .nav-menu::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-menu {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   .nav-date {
     overflow: auto;
     white-space: nowrap;
     position: absolute;
-    max-width: $header_date_max_width - 1%;
+    max-width: calc($header_date_max_width - 1%);
     left: $header_menu_max_width;
     height: inherit;
+    // Hide scrollbars
+    & {
+      -ms-overflow-style: none; // IE and Edge
+      scrollbar-width: none; // Firefox
+    }
+    &::-webkit-scrollbar {
+      display: none; // Webkit browsers
+    }
   }
-
-  .nav-date::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-date {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   .nav-system {
     white-space: nowrap;
     position: absolute;
-    left: $header_menu_max_width + $header_date_max_width;
+    left: calc($header_menu_max_width + $header_date_max_width);
     overflow: auto;
-    max-width: $header_system_max_width - 1%;
+    max-width: calc($header_system_max_width - 1%);
     height: inherit;
+    // Hide scrollbars
+    & {
+      -ms-overflow-style: none; // IE and Edge
+      scrollbar-width: none; // Firefox
+    }
+    &::-webkit-scrollbar {
+      display: none; // Webkit browsers
+    }
   }
-
-  .nav-system::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-system {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   .nav-access {
     white-space: nowrap;
     position: absolute;
@@ -87,25 +77,20 @@
   bottom: 0;
   width: 100%;
   overflow: hidden;
-
   .desktop-content {
     position: absolute;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
     width: $content_width - 0.5%;
-
     &:hover {
       border: $win_hover_border_width $win_hover_border_style;
     }
-
     .post-table {
       border: none;
-
       table {
         width: 100%;
       }
-
       .table-title {
         font-weight: bold;
       }
@@ -119,27 +104,22 @@
         border-right: 1px solid;
         width: 1px;
       }
-
-
       td:first-child {
         border-right: 1px solid;
         width: 1px;
       }
     }
   }
-
   .desktop-category {
     position: absolute;
     left: $content_width;
     height: $category_height - 1%;
     width: $category_width;
     overflow-y: scroll;
-
     &:hover {
       border: $win_hover_border_width $win_hover_border_style;
     }
   }
-
   .desktop-tag {
     position: absolute;
     left: $content_width;
@@ -147,11 +127,9 @@
     height: $tag_height;
     width: $tag_width;
     overflow-y: scroll;
-
     &:hover {
       border: $win_hover_border_width $win_hover_border_style;
     }
-
     .list-cloud {
       margin-top: 10px;
     }

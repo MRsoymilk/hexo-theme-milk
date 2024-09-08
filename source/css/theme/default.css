@@ -141,7 +141,7 @@ details {
 
 .win .win-title {
   color: #f2cdcd;
-  background-color: rgba(32, 34, 46, 0.9);
+  background-color: rgb(32, 34, 46);
 }
 .win .win-body {
   background-color: rgba(32, 34, 46, 0.9);

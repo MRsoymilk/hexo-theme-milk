@@ -28,48 +28,23 @@
     cursor: move;
   }
 
-  .toc-level-2 {
-    margin-left: 5px;
-  }
+  @for $i from 2 through 6 {
+    .toc-level-#{$i} {
+      margin-left: calc(3px + #{$i} * 2px);
 
-  .toc-level-3 {
-    margin-left: 7px;
-
-    &:before {
-      content: ">";
-    }
-  }
-
-  .toc-level-4 {
-    margin-left: 9px;
-
-    &:before {
-      content: ">";
-    }
-  }
-
-  .toc-level-5 {
-    margin-left: 11px;
-
-    &:before {
-      content: ">";
-    }
-  }
-
-  .toc-level-6 {
-    margin-left: 13px;
-
-    &:before {
-      content: ">";
+      &:before {
+        content: ">";
+      }
     }
   }
 
   .progress-container {
     width: 100%;
     height: $progress_bar_height;
+
     .progress-bar {
       height: $progress_bar_height;
-      width: 0%;
+      width: 0%; // Initial state
     }
   }
 }

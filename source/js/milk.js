@@ -1,17 +1,17 @@
 $(() => {
   // gitee usage
   $(() => {
-    if($(location).attr("pathname").slice(0, 5) == "/blog"){
+    if ($(location).attr("pathname").slice(0, 5) == "/blog") {
       var root_path = "/blog";
       $("body").css({
-        "cursor":"url(\"" + root_path + "/cursor/normal.cur\"), auto",
-        "background-image":"url(\"" + root_path + "/background.jpg" + "\")"
+        cursor: 'url("' + root_path + '/cursor/normal.cur"), auto',
+        "background-image": 'url("' + root_path + "/background.jpg" + '")',
       });
       $("a").hover(() => {
-        $("a").css("cursor", "url(\"" + root_path + "/cursor/link.cur\"), auto")
-      })
+        $("a").css("cursor", 'url("' + root_path + '/cursor/link.cur"), auto');
+      });
     }
-  })
+  });
 
   // resizable
   $(() => {
@@ -19,13 +19,13 @@ $(() => {
       animate: true,
       minHeight: 500,
       minWidth: 1000,
-      alsoResize: ".win-title"
-    })
+      alsoResize: ".win-title",
+    });
     $(".win-title").resizable({
       animate: true,
-      minHeight: 50
-    })
-  })
+      minHeight: 50,
+    });
+  });
   // use fancybox to show pictures
   $("img").each(function (index) {
     var title = ' data-caption="' + $(this).attr("alt") + '"';
@@ -42,39 +42,42 @@ $(() => {
 
   // scroll to top
   $(() => {
-    const $spriteContainer = $('#sprite-container');
-    if($spriteContainer.data('mouse-out-ani') && $spriteContainer.data('mouse-hover-ani') && $spriteContainer.data('mouse-click-ani'))
-    {
-      const mouseOutAni = $spriteContainer.data('mouse-out-ani').split(',');
-      const mouseHoverAni = $spriteContainer.data('mouse-hover-ani').split(',');
-      const mouseClickAni = $spriteContainer.data('mouse-click-ani').split(',');
+    const $spriteContainer = $("#sprite-container");
+    if (
+      $spriteContainer.data("mouse-out-ani") &&
+      $spriteContainer.data("mouse-hover-ani") &&
+      $spriteContainer.data("mouse-click-ani")
+    ) {
+      const mouseOutAni = $spriteContainer.data("mouse-out-ani").split(",");
+      const mouseHoverAni = $spriteContainer.data("mouse-hover-ani").split(",");
+      const mouseClickAni = $spriteContainer.data("mouse-click-ani").split(",");
 
       function handleMouseOut() {
         mouseOutAni.forEach((frame, index) => {
           setTimeout(() => {
-            $spriteContainer.css('background-image', `url('${frame}')`);
+            $spriteContainer.css("background-image", `url('${frame}')`);
           }, index * 100);
         });
       }
-      
+
       function handleMouseClick() {
         $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
         mouseClickAni.forEach((frame, index) => {
           setTimeout(() => {
-            $spriteContainer.css('background-image', `url('${frame}')`);
+            $spriteContainer.css("background-image", `url('${frame}')`);
           }, index * 100);
         });
       }
-      
+
       function handleMouseOver() {
         mouseHoverAni.forEach((frame, index) => {
           setTimeout(() => {
-            $spriteContainer.css('background-image', `url('${frame}')`);
+            $spriteContainer.css("background-image", `url('${frame}')`);
           }, index * 100);
         });
       }
-      
-      $spriteContainer.click(handleMouseClick)
+
+      $spriteContainer.click(handleMouseClick);
       $spriteContainer.mouseover(handleMouseOver);
       $spriteContainer.mouseout(handleMouseOut);
       handleMouseOut();
@@ -236,16 +239,16 @@ $(() => {
       "white-space": "nowrap",
     });
 
-    $("#list-cloud a").each(function() {
+    $("#list-cloud a").each(function () {
       $(this).attr("title", $(this).text());
     });
   });
 
   // header access
-  $("#nav-access").click(function() {
-    $(this).toggleClass('fa-toggle-off fa-toggle-on');
+  $("#nav-access").click(function () {
+    $(this).toggleClass("fa-toggle-off fa-toggle-on");
     $("#dropdown-content").toggle();
-});
+  });
 
   // comment tab page
   $("#comment-tabs").tabs();
@@ -253,30 +256,80 @@ $(() => {
   // code copy function
   $(() => {
     hljs.highlightAll();
-    $('pre code').each(function () {
+    $("pre code").each(function () {
       const $codeBlock = $(this);
-      
-      const language = $codeBlock.attr('class').match(/language-\w+/);
-      const languageType = language ? language[0].replace('language-', '') : 'Unknown';
+
+      const language = $codeBlock.attr("class").match(/language-\w+/);
+      const languageType = language
+        ? language[0].replace("language-", "")
+        : "Unknown";
       // build bar: language copy
       const bar = `<div class="code-prompt"><span class="language">${languageType}</span><button type="button" class="copy">copy</button></div>`;
       $codeBlock.before(bar);
     });
-    $('.copy').click(function() {
+    $(".copy").click(function () {
       const $button = $(this);
-      const $codeBlock = $button.closest('pre').find('code');
+      const $codeBlock = $button.closest("pre").find("code");
       const codeText = $codeBlock.text().trim();
-      
-      navigator.clipboard.writeText(codeText).then(function() {
-        $button.text('Success!');
-        setTimeout(function() {
-          $button.text('Copy');
-        }, 1000);
-      }).catch(function(err) {
-        setTimeout(function() {
-          $button.text('Fail!');
-        }, 1000);
-      });
+
+      navigator.clipboard
+        .writeText(codeText)
+        .then(function () {
+          $button.text("Success!");
+          setTimeout(function () {
+            $button.text("Copy");
+          }, 1000);
+        })
+        .catch(function (err) {
+          setTimeout(function () {
+            $button.text("Fail!");
+          }, 1000);
+        });
     });
+  });
+
+  // image
+  $(() => {
+    // desktop content
+    // /path/to/your/image/file
+    $(".desktop-content ul li img").each(function () {
+      var postSourceHref = $("#post-source li:last-child a").attr("href");
+      if (postSourceHref) {
+        $(".post-table img").each(function () {
+          var img = $(this);
+          var imgSrc = img.attr("src");
+          if (imgSrc.startsWith("/")) {
+            var newSrc = postSourceHref.replace(/\/$/, "") + imgSrc;
+            img.attr("src", newSrc);
+            var link = img.closest("a");
+            if (link.length > 0) {
+              link.attr("href", newSrc);
+            }
+          }
+        });
+      }
+    });
+    // hexo server
+    // http://localhost/path/to/your/image/file
+    var currentUrl = window.location.href;
+    if (currentUrl.includes("localhost")) {
+      $("img").each(function () {
+        var img = $(this);
+        var imgSrc = img.attr("src");
+
+        // judge /img.png
+        var slashCount = (imgSrc.match(/\//g) || []).length;
+
+        if (slashCount === 1 && currentUrl.includes("localhost")) {
+          var newPath =
+            currentUrl.replace(/[^\/]+$/, "") + imgSrc.replace("/", "");
+          img.attr("src", newPath);
+          var link = img.closest("a");
+          if (link.length > 0) {
+            link.attr("href", newPath);
+          }
+        }
+      });
+    }
   });
 });

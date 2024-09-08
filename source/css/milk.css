@@ -23,12 +23,12 @@
 .milk-header .nav-menu a {
   text-decoration: none;
 }
-.milk-header .nav-menu::-webkit-scrollbar {
-  display: none;
-}
 .milk-header .nav-menu {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.milk-header .nav-menu::-webkit-scrollbar {
+  display: none;
 }
 .milk-header .nav-date {
   overflow: auto;
@@ -38,12 +38,12 @@
   left: 40%;
   height: inherit;
 }
-.milk-header .nav-date::-webkit-scrollbar {
-  display: none;
-}
 .milk-header .nav-date {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.milk-header .nav-date::-webkit-scrollbar {
+  display: none;
 }
 .milk-header .nav-system {
   white-space: nowrap;
@@ -53,12 +53,12 @@
   max-width: 24%;
   height: inherit;
 }
-.milk-header .nav-system::-webkit-scrollbar {
-  display: none;
-}
 .milk-header .nav-system {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.milk-header .nav-system::-webkit-scrollbar {
+  display: none;
 }
 .milk-header .nav-access {
   white-space: nowrap;
@@ -283,28 +283,31 @@ details {
   cursor: move;
 }
 .draggable-toc .toc-level-2 {
-  margin-left: 5px;
+  margin-left: calc(3px + 2 * 2px);
+}
+.draggable-toc .toc-level-2:before {
+  content: ">";
 }
 .draggable-toc .toc-level-3 {
-  margin-left: 7px;
+  margin-left: calc(3px + 3 * 2px);
 }
 .draggable-toc .toc-level-3:before {
   content: ">";
 }
 .draggable-toc .toc-level-4 {
-  margin-left: 9px;
+  margin-left: calc(3px + 4 * 2px);
 }
 .draggable-toc .toc-level-4:before {
   content: ">";
 }
 .draggable-toc .toc-level-5 {
-  margin-left: 11px;
+  margin-left: calc(3px + 5 * 2px);
 }
 .draggable-toc .toc-level-5:before {
   content: ">";
 }
 .draggable-toc .toc-level-6 {
-  margin-left: 13px;
+  margin-left: calc(3px + 6 * 2px);
 }
 .draggable-toc .toc-level-6:before {
   content: ">";
