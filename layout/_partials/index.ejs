@@ -1,23 +1,31 @@
-<%# content %>
-<div class="desktop-content">
-  <%- include('_desktop/content.ejs') %>
-  <%- include('_desktop/paginator.ejs') %>
-</div>
-<%# category %>
-<div class="desktop-category">
-  <ul class="breadcrumbs">
-    <li><a href="#"><i class="fas fa-list"></i></a></li>
-    <li><a href="#">category</a></li>
-    <li><a href="#"><%- theme.cmd_category %></a></li>
-  </ul>
-  <%- include('_desktop/category.ejs') %>
-</div>
-<%# tag %>
-<div class="desktop-tag">
-  <ul class="breadcrumbs">
-    <li><a href="#"><i class="far fa-folder"></i></a></li>
-    <li><a href="#">tag</a></li>
-    <li><a href="#"><%- theme.cmd_tag %></a></li>
-  </ul>
-    <%- include('_desktop/tag.ejs') %>
+<div id="layout">
+  <%# content %>
+  <div class="window" id="w-content">
+    <div class="desktop-content">
+      <%- include('_desktop/content.ejs') %>
+      <%- include('_desktop/paginator.ejs') %>
+    </div>
+  </div>
+  <%# category %>
+  <div class="window" id="w-category">
+    <div class="desktop-category">
+      <ul class="breadcrumbs">
+        <li><a href="#"><i class="fas fa-list"></i></a></li>
+        <li><a href="#">category</a></li>
+        <li><a href="#"><%- theme.cmd_category %></a></li>
+      </ul>
+      <%- include('_desktop/category.ejs') %>
+    </div>
+  </div>
+  <%# tag %>
+  <div class="window" id="w-tag">
+    <div class="desktop-tag">
+      <ul class="breadcrumbs">
+        <li><a href="#"><i class="far fa-folder"></i></a></li>
+        <li><a href="#">tag</a></li>
+        <li><a href="#"><%- theme.cmd_tag %></a></li>
+      </ul>
+        <%- include('_desktop/tag.ejs') %>
+    </div>
+  </div>
 </div>

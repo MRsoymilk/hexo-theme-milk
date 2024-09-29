@@ -463,4 +463,121 @@ $(() => {
       );
     });
   });
+
+  // layout
+  $(() => {
+    function swapWindows(windowA, windowB) {
+      const contentA = windowA.html();
+      windowA.html(windowB.html());
+      windowB.html(contentA);
+    }
+
+    function setLayout(next) {
+      $("#layout").removeClass().removeAttr("style");
+      $("#w-content").removeClass().removeAttr("style").addClass("window");
+      $("#w-tag").removeClass().removeAttr("style").addClass("window");
+      $("#w-category").removeClass().removeAttr("style").addClass("window");
+      if (next === "floating") {
+        $("#layout").addClass("layout-floating");
+        $("#w-content").addClass("f-content");
+        $("#w-tag").addClass("f-tag");
+        $("#w-category").addClass("f-category");
+
+        function setRandomPosition(element) {
+          const windowWidth = $(window).width();
+          const windowHeight = $(window).height();
+          const elemWidth = $(element).outerWidth();
+          const elemHeight = $(element).outerHeight();
+
+          const randomX = Math.random() * (windowWidth - elemWidth);
+          const randomY = Math.random() * (windowHeight - elemHeight);
+
+          $(element).css({
+            left: randomX,
+            top: randomY,
+          });
+        }
+
+        setRandomPosition("#w-content");
+        setRandomPosition("#w-tag");
+        setRandomPosition("#w-category");
+
+        $(".layout-floating .window")
+          .draggable({
+            containment: "window",
+            start: function () {
+              $(".window").css("z-index", 1);
+              $(this).css("z-index", 2);
+            },
+          })
+          .resizable();
+        $(".layout-floating .window").on("click", function () {
+          $(".window").css("z-index", 1);
+          $(this).css("z-index", 2);
+        });
+      } else if (next === "stack") {
+        $("#layout").addClass("layout-stack");
+        $("#w-content").addClass("s-content");
+        $("#w-tag").addClass("s-tag");
+        $("#w-category").addClass("s-category");
+        $(".layout-stack .window")
+          .off("click")
+          .on("click", function () {
+            const zIndex3Window = $(".window").filter(function () {
+              return parseInt($(this).css("z-index"), 10) === 3;
+            });
+            const clickedWindow = $(this);
+            swapWindows(zIndex3Window, clickedWindow);
+          });
+      } else if (next === "tile") {
+        $("#layout").addClass("layout-tile");
+        $("#w-content").addClass("t-content");
+        $("#w-tag").addClass("t-tag");
+        $("#w-category").addClass("t-category");
+        $(".layout-tile .window").on("mousedown", function () {
+          currentWindow = $(this);
+          $(".layout-tile").css("user-select", "none");
+        });
+        $(".layout-tile .window").on("mouseup", function (event) {
+          const mouseX = event.pageX;
+          const mouseY = event.pageY;
+          let targetWindow = null;
+          $(".layout-tile .window").each(function () {
+            const targetPosition = $(this).offset();
+            const targetWidth = $(this).outerWidth();
+            const targetHeight = $(this).outerHeight();
+            if (
+              mouseX >= targetPosition.left &&
+              mouseX <= targetPosition.left + targetWidth &&
+              mouseY >= targetPosition.top &&
+              mouseY <= targetPosition.top + targetHeight
+            ) {
+              targetWindow = $(this);
+              return false;
+            }
+          });
+          if (
+            targetWindow &&
+            currentWindow &&
+            targetWindow[0] !== currentWindow[0]
+          ) {
+            swapWindows(currentWindow, targetWindow);
+          }
+          currentWindow = null;
+          $(".layout-tile .window").removeAttr("user-select");
+        });
+      }
+    }
+
+    var layouts = ["tile", "floating", "stack"];
+    const layout = $("#nav-layout").data("layout");
+    setLayout(layout);
+    $("#nav-layout").on("click", function () {
+      var currentLayout = $(this).data("layout");
+      var next = layouts[(1 + layouts.indexOf(currentLayout)) % layouts.length];
+      $(this).data("layout", next);
+      $("#layout-show").text(next);
+      setLayout(next);
+    });
+  });
 });

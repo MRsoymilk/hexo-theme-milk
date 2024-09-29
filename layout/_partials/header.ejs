@@ -21,6 +21,10 @@
     <% if(theme.system){ %>
       <span class="nav-system" id="nav-system"></span>
     <% } %>
+    <%# layout %>
+    <span class="nav-layout" id="nav-layout" data-layout="<%= theme.layout %>">
+      <div id="layout-show"><%= theme.layout %></div>
+    </span>
     <%# more %>
     <span class="nav-access">
       <i class="fas fa-toggle-off" id="nav-access"></i>

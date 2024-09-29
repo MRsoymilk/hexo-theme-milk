@@ -1,8 +1,11 @@
-<%# jquery %>
-<%- js("/lib/jquery/jquery.min.js") %>
-<%- js("/lib/jquery/jquery-ui.min.js") %>
-<%- js('/lib/fancybox/jquery.fancybox.min.js') %>
-<%# highlight %>
-<%- js('/lib/highlight/highlight.min.js') %>
-<%# self %>
-<%- js('/js/milk.js') %>
+<% const scripts = [
+    "/lib/jquery/jquery.min.js",            // jquery
+    "/lib/jquery/jquery-ui.min.js",
+    "/lib/fancybox/jquery.fancybox.min.js",
+    "/lib/highlight/highlight.min.js",      // highlight
+    "/js/milk.js"                           // self
+]; %>
+
+<% scripts.forEach(script => { %>
+    <%- js(script) %>
+<% }); %>

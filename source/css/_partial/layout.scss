@@ -1,137 +1,229 @@
-.milk-header {
-  position: absolute;
-  top: 0;
-  height: $header_height;
-  line-height: $header_height;
-  width: 100%;
-  .header-nav {
-    display: block;
+.milk {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .milk-header {
     width: 100%;
-    height: inherit;
-  }
-  .nav-menu {
-    display: inline-block;
-    overflow: auto;
-    white-space: nowrap;
-    max-width: calc($header_menu_max_width - 1%);
-    height: inherit;
-    li {
+    height: 50px;
+    overflow: hidden;
+    .header-nav {
+      display: block;
+      width: 100%;
+      height: inherit;
+    }
+    .nav-menu {
       display: inline-block;
+      overflow: auto;
+      white-space: nowrap;
+      max-width: $header_menu_max_width;
+      height: inherit;
+      li {
+        display: inline-block;
+      }
+      a {
+        text-decoration: none;
+      }
+      // Hide scrollbars
+      & {
+        -ms-overflow-style: none; // IE and Edge
+        scrollbar-width: none; // Firefox
+      }
+      &::-webkit-scrollbar {
+        display: none; // Webkit browsers
+      }
     }
-    a {
-      text-decoration: none;
+    .nav-date {
+      overflow: auto;
+      white-space: nowrap;
+      position: absolute;
+      max-width: $header_date_max_width;
+      left: $header_menu_max_width;
+      height: inherit;
+      // Hide scrollbars
+      & {
+        -ms-overflow-style: none; // IE and Edge
+        scrollbar-width: none; // Firefox
+      }
+      &::-webkit-scrollbar {
+        display: none; // Webkit browsers
+      }
     }
-    // Hide scrollbars
-    & {
-      -ms-overflow-style: none; // IE and Edge
-      scrollbar-width: none; // Firefox
+    .nav-system {
+      white-space: nowrap;
+      position: absolute;
+      right: 10%;
+      overflow: auto;
+      max-width: $header_system_max_width;
+      height: inherit;
+      // Hide scrollbars
+      & {
+        -ms-overflow-style: none; // IE and Edge
+        scrollbar-width: none; // Firefox
+      }
+      &::-webkit-scrollbar {
+        display: none; // Webkit browsers
+      }
     }
-    &::-webkit-scrollbar {
-      display: none; // Webkit browsers
+    .nav-layout {
+      white-space: nowrap;
+      position: absolute;
+      right: 5%;
+    }
+    .nav-access {
+      white-space: nowrap;
+      position: absolute;
+      right: 0;
+      max-width: $header_access_max_width;
+      height: inherit;
     }
   }
-  .nav-date {
-    overflow: auto;
-    white-space: nowrap;
-    position: absolute;
-    max-width: calc($header_date_max_width - 1%);
-    left: $header_menu_max_width;
-    height: inherit;
-    // Hide scrollbars
-    & {
-      -ms-overflow-style: none; // IE and Edge
-      scrollbar-width: none; // Firefox
+  
+  .milk-body {
+    overflow: hidden;
+    height: calc(100% - 50px);
+    .desktop-content {
+      &:hover {
+        border: $win_hover_border_width $win_hover_border_style;
+      }
+      .post-table {
+        border: none;
+        table {
+          width: 100%;
+        }
+        .table-title {
+          font-weight: bold;
+        }
+        .table-linenum {
+          margin-top: 10px;
+        }
+        th {
+          border-bottom: 1px solid;
+        }
+        th:first-child {
+          border-right: 1px solid;
+          width: 1px;
+        }
+        td:first-child {
+          border-right: 1px solid;
+          width: 1px;
+        }
+      }
     }
-    &::-webkit-scrollbar {
-      display: none; // Webkit browsers
+    .desktop-category {
+      overflow-y: scroll;
+      &:hover {
+        border: $win_hover_border_width $win_hover_border_style;
+      }
     }
-  }
-  .nav-system {
-    white-space: nowrap;
-    position: absolute;
-    left: calc($header_menu_max_width + $header_date_max_width);
-    overflow: auto;
-    max-width: calc($header_system_max_width - 1%);
-    height: inherit;
-    // Hide scrollbars
-    & {
-      -ms-overflow-style: none; // IE and Edge
-      scrollbar-width: none; // Firefox
+    .desktop-tag {
+      overflow-y: scroll;
+      height: 100%;
+      &:hover {
+        border: $win_hover_border_width $win_hover_border_style;
+      }
+      .list-cloud {
+        margin-top: 10px;
+      }
     }
-    &::-webkit-scrollbar {
-      display: none; // Webkit browsers
-    }
-  }
-  .nav-access {
-    white-space: nowrap;
-    position: absolute;
-    right: 0;
-    max-width: $header_access_max_width;
-    height: inherit;
   }
 }
 
-.milk-body {
-  position: absolute;
-  top: $milk_body_top;
-  bottom: 0;
+.window {
+  z-index: 1;
+}
+
+.layout-stack {
+  height: 100%;
   width: 100%;
-  overflow: hidden;
-  .desktop-content {
+  position: relative;
+
+  .s-content {
+    top: 80px;
+    left: 80px;
+    height: calc(100% - 80px);
+    width: calc(100% - 80px);
+    z-index: 3;
     position: absolute;
     overflow-y: scroll;
-    overflow-x: hidden;
+  }
+
+  .s-category {
+    top: 40px;
+    left: 40px;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    z-index: 2;
+    position: absolute;
+    overflow-y: scroll;
+  }
+
+  .s-tag {
+    top: 0px;
+    left: 0px;
     height: 100%;
-    width: $content_width - 0.5%;
-    &:hover {
-      border: $win_hover_border_width $win_hover_border_style;
-    }
-    .post-table {
-      border: none;
-      table {
-        width: 100%;
-      }
-      .table-title {
-        font-weight: bold;
-      }
-      .table-linenum {
-        margin-top: 10px;
-      }
-      th {
-        border-bottom: 1px solid;
-      }
-      th:first-child {
-        border-right: 1px solid;
-        width: 1px;
-      }
-      td:first-child {
-        border-right: 1px solid;
-        width: 1px;
-      }
-    }
-  }
-  .desktop-category {
+    width: 100%;
+    z-index: 1;
     position: absolute;
-    left: $content_width;
-    height: $category_height - 1%;
-    width: $category_width;
     overflow-y: scroll;
-    &:hover {
-      border: $win_hover_border_width $win_hover_border_style;
-    }
   }
-  .desktop-tag {
+}
+
+.layout-tile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .t-content {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    height: calc(100% - 50px);
+    overflow: scroll;
+  }
+
+  .t-tag {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    height: 50vh;
+    overflow: scroll;
+  }
+
+  .t-category {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: 50vh;
+    overflow: scroll;
+  }
+}
+
+.layout-floating {
+  height: 100%;
+  width: 100%;
+
+  .f-content {
+    width: 60%;
+    height: 60%;
+    overflow: scroll;
     position: absolute;
-    left: $content_width;
-    top: $category_height;
-    height: $tag_height;
-    width: $tag_width;
-    overflow-y: scroll;
-    &:hover {
-      border: $win_hover_border_width $win_hover_border_style;
-    }
-    .list-cloud {
-      margin-top: 10px;
-    }
+    z-index: 2;
+  }
+
+  .f-category {
+    width: 60%;
+    height: 60%;
+    overflow: scroll;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .f-tag {
+    width: 60%;
+    height: 60%;
+    overflow: scroll;
+    position: absolute;
+    z-index: 1;
   }
 }

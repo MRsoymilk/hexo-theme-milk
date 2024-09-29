@@ -207,19 +207,12 @@
 }
 
 .paginator {
-  margin-top: 50px;
   text-align: center;
-
-  .page-number,
-  .space,
-  a,
-  a.active {
-    padding: 16px 32px;
-  }
 
   a {
     text-decoration: none;
     transition: 0.3s;
+    margin: 10px;
 
     &:first-child {
       border-left: none;
