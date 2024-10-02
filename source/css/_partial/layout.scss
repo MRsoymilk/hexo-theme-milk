@@ -82,6 +82,7 @@
     overflow: hidden;
     height: calc(100% - 50px);
     .desktop-content {
+      backdrop-filter: blur(10px);
       &:hover {
         border: $win_hover_border_width $win_hover_border_style;
       }
@@ -110,12 +111,14 @@
       }
     }
     .desktop-category {
+      backdrop-filter: blur(10px);
       overflow-y: scroll;
       &:hover {
         border: $win_hover_border_width $win_hover_border_style;
       }
     }
     .desktop-tag {
+      backdrop-filter: blur(10px);
       overflow-y: scroll;
       height: 100%;
       &:hover {

@@ -15,6 +15,7 @@
 }
 
 .draggable-toc {
+  backdrop-filter: blur(10px);
   position: absolute;
   z-index: 9;
   border: $draggable_toc_border_width solid;
@@ -94,6 +95,7 @@
 }
 
 .post-content {
+  backdrop-filter: blur(10px);
   overflow-y: scroll;
   height: 100%;
   margin-left: 15%;
