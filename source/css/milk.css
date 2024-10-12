@@ -340,7 +340,7 @@ details {
 }
 
 #sprite-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 90%;
   z-index: 9;

@@ -5,7 +5,7 @@
 }
 
 #sprite-container {
-  position: absolute;
+  position: fixed;
   top: $scroll2top_top;
   left: $scroll2top_left;
   z-index: 9;

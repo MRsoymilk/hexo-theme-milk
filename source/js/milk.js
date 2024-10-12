@@ -36,47 +36,106 @@ $(() => {
 
   // scroll to top
   $(() => {
-    const $spriteContainer = $("#sprite-container");
-    if (
-      $spriteContainer.data("mouse-out-ani") &&
-      $spriteContainer.data("mouse-hover-ani") &&
-      $spriteContainer.data("mouse-click-ani")
-    ) {
-      const mouseOutAni = $spriteContainer.data("mouse-out-ani").split(",");
-      const mouseHoverAni = $spriteContainer.data("mouse-hover-ani").split(",");
-      const mouseClickAni = $spriteContainer.data("mouse-click-ani").split(",");
+    const $sprite = $("#sprite-container");
+    const $canvas = $("#sprite-canvas");
+    const ctx = $canvas[0].getContext("2d");
 
-      function handleMouseOut() {
-        mouseOutAni.forEach((frame, index) => {
-          setTimeout(() => {
-            $spriteContainer.css("background-image", `url('${frame}')`);
-          }, index * 100);
-        });
-      }
+    const mouseOutAni = $sprite.data("mouse-out-ani").split(",");
+    const mouseHoverAni = $sprite.data("mouse-hover-ani").split(",");
+    const mouseClickAni = $sprite.data("mouse-click-ani").split(",");
+    console.log(mouseOutAni);
+    console.log(mouseHoverAni);
+    console.log(mouseClickAni);
+    function drawFrame(imageSrc) {
+      const img = new Image();
+      img.src = imageSrc;
+      img.onload = () => {
+        const imgWidth = img.width;
+        const imgHeight = img.height;
 
-      function handleMouseClick() {
-        $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
-        mouseClickAni.forEach((frame, index) => {
-          setTimeout(() => {
-            $spriteContainer.css("background-image", `url('${frame}')`);
-          }, index * 100);
-        });
-      }
+        const scale = Math.min(
+          $canvas.width() / imgWidth,
+          $canvas.height() / imgHeight
+        );
 
-      function handleMouseOver() {
-        mouseHoverAni.forEach((frame, index) => {
-          setTimeout(() => {
-            $spriteContainer.css("background-image", `url('${frame}')`);
-          }, index * 100);
-        });
-      }
+        const drawWidth = imgWidth * scale;
+        const drawHeight = imgHeight * scale;
 
-      $spriteContainer.click(handleMouseClick);
-      $spriteContainer.mouseover(handleMouseOver);
-      $spriteContainer.mouseout(handleMouseOut);
-      handleMouseOut();
+        const offsetX = ($canvas.width() - drawWidth) / 2;
+        const offsetY = ($canvas.height() - drawHeight) / 2;
+
+        ctx.clearRect(0, 0, $canvas.width(), $canvas.height());
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      };
     }
+
+    function playAnimation(frames) {
+      frames.forEach((frame, index) => {
+        setTimeout(() => drawFrame(frame), index * 100);
+      });
+    }
+
+    function handleMouseOut() {
+      playAnimation(mouseOutAni);
+    }
+
+    function handleMouseOver() {
+      playAnimation(mouseHoverAni);
+    }
+
+    function handleMouseClick() {
+      $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
+      playAnimation(mouseClickAni);
+    }
+
+    $canvas.on("click", handleMouseClick);
+    $canvas.on("mouseover", handleMouseOver);
+    $canvas.on("mouseout", handleMouseOut);
+
+    handleMouseOut();
   });
+  // $(() => {
+  //   const $spriteContainer = $("#sprite-container");
+  //   if (
+  //     $spriteContainer.data("mouse-out-ani") &&
+  //     $spriteContainer.data("mouse-hover-ani") &&
+  //     $spriteContainer.data("mouse-click-ani")
+  //   ) {
+  //     const mouseOutAni = $spriteContainer.data("mouse-out-ani").split(",");
+  //     const mouseHoverAni = $spriteContainer.data("mouse-hover-ani").split(",");
+  //     const mouseClickAni = $spriteContainer.data("mouse-click-ani").split(",");
+
+  //     function handleMouseOut() {
+  //       mouseOutAni.forEach((frame, index) => {
+  //         setTimeout(() => {
+  //           $spriteContainer.css("background-image", `url('${frame}')`);
+  //         }, index * 100);
+  //       });
+  //     }
+
+  //     function handleMouseClick() {
+  //       $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
+  //       mouseClickAni.forEach((frame, index) => {
+  //         setTimeout(() => {
+  //           $spriteContainer.css("background-image", `url('${frame}')`);
+  //         }, index * 100);
+  //       });
+  //     }
+
+  //     function handleMouseOver() {
+  //       mouseHoverAni.forEach((frame, index) => {
+  //         setTimeout(() => {
+  //           $spriteContainer.css("background-image", `url('${frame}')`);
+  //         }, index * 100);
+  //       });
+  //     }
+
+  //     $spriteContainer.click(handleMouseClick);
+  //     $spriteContainer.mouseover(handleMouseOver);
+  //     $spriteContainer.mouseout(handleMouseOut);
+  //     handleMouseOut();
+  //   }
+  // });
 
   // toc style
   if (document.getElementById("post-content")) {
@@ -321,7 +380,7 @@ $(() => {
       }
     });
 
-    // change img path as http://host:port/img.typ to http://host:port/path/to/your/image/file
+    // change img path as http://host:port/img.png to http://host:port/path/to/your/image/file
     $(".desktop-content ul li").each(function () {
       var postSourceHref = $(this)
         .find("#post-source li:last-child a")
