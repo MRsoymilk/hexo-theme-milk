@@ -79,9 +79,6 @@
   overflow: hidden;
   height: calc(100% - 50px);
 }
-.milk .milk-body .desktop-content {
-  backdrop-filter: blur(10px);
-}
 .milk .milk-body .desktop-content:hover {
   border: 1px solid;
 }
@@ -109,14 +106,12 @@
   width: 1px;
 }
 .milk .milk-body .desktop-category {
-  backdrop-filter: blur(10px);
   overflow-y: scroll;
 }
 .milk .milk-body .desktop-category:hover {
   border: 1px solid;
 }
 .milk .milk-body .desktop-tag {
-  backdrop-filter: blur(10px);
   overflow-y: scroll;
   height: 100%;
 }
@@ -355,7 +350,6 @@ details {
 }
 
 .draggable-toc {
-  backdrop-filter: blur(10px);
   position: absolute;
   z-index: 9;
   border: 1px solid;
@@ -448,7 +442,6 @@ details {
 }
 
 .post-content {
-  backdrop-filter: blur(10px);
   overflow-y: scroll;
   height: 100%;
   margin-left: 15%;
@@ -608,7 +601,6 @@ details {
 }
 
 .archive {
-  backdrop-filter: blur(10px);
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;

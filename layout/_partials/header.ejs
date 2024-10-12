@@ -51,6 +51,21 @@
             <option value='<%= theme.highlight %>'><%= theme.highlight %></option>
           </select>
         </div>
+        <div>
+          <label for="ffolders-select">ffolders scheme: </label>
+          <select name="size" id="size-select">
+            <option value='<%= theme.ffolders.size %>'><%= theme.ffolders.size %></option>
+          </select>
+          <select name="color" id="color-select">
+            <option value='<%= theme.ffolders.color %>'><%= theme.ffolders.color %></option>
+          </select>
+        </div>
+        <div>
+          <label for="blur-slider">background blur
+            <span id="blur-value"><%= theme.background.blur %></span> px
+          </label>
+          <input type="range" id="blur-slider" min="0" max="20" data-value='<%= theme.background.blur %>'>
+        </div>
       </div>
     </span>
   </nav>

@@ -1,6 +1,6 @@
 <%# index page tag %> 
 <% if (site.tags.length) { %>
-  <div id="list-cloud" class="list-cloud">
+  <div id="list-cloud" class="list-cloud" data-size='<%= theme.ffolders.size %>' data-color='<%= theme.ffolders.color %>'>
     <%- tag_cloud() %>
   </div>
 <% } %>

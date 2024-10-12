@@ -230,9 +230,13 @@ $(() => {
 
   // tags style
   $(() => {
-    $("#list-cloud a").wrap('<div class="ffolder small pink"></div>');
-    $("#list-cloud a").width("50px");
-    $("#list-cloud a").css({
+    const $tags = $("#list-cloud");
+    const $tags_item = $("#list-cloud a");
+    var size = $tags.data("size");
+    var color = $tags.data("color");
+    $tags_item.wrap('<div class="ffolder ' + size + " " + color + '"></div>');
+    $tags_item.width("100%");
+    $tags_item.css({
       "font-size": "25px",
       color: "black",
       "text-overflow": "ellipsis",
@@ -241,7 +245,7 @@ $(() => {
       "white-space": "nowrap",
     });
 
-    $("#list-cloud a").each(function () {
+    $tags_item.each(function () {
       $(this).attr("title", $(this).text());
     });
   });
@@ -366,7 +370,6 @@ $(() => {
 
     schemeSelect.on("change", function () {
       const selectedScheme = $(this).val();
-      console.log(selectedScheme);
       $("#shceme-link").attr("href", "/css/theme/" + selectedScheme + ".css");
     });
 
@@ -456,7 +459,6 @@ $(() => {
 
     highlightSelect.on("change", function () {
       const highlightededScheme = $(this).val();
-      console.log(highlightededScheme);
       $("#highlight-link").attr(
         "href",
         "/lib/highlight/style/" + highlightededScheme + ".css"
@@ -578,6 +580,69 @@ $(() => {
       $(this).data("layout", next);
       $("#layout-show").text(next);
       setLayout(next);
+    });
+  });
+
+  // ffolders
+  $(() => {
+    // folder size
+    const sizes = ["small", "medium", "big"];
+    const sizeSelect = $("#size-select");
+    sizes.forEach(function (scheme) {
+      sizeSelect.append(`<option value="${scheme}">${scheme}</option>`);
+    });
+    sizeSelect.on("change", function () {
+      const newSize = $(this).val();
+      $("#list-cloud a").each(function () {
+        const $parentDiv = $(this).parent();
+        const colorClass = $parentDiv.attr("class").split(" ")[2];
+        $parentDiv.attr("class", `ffolder ${newSize} ${colorClass}`);
+      });
+    });
+    // folder color
+    const colors = ["cyan", "yellow", "pink", "green", "gray"];
+    const colorSelect = $("#color-select");
+    colors.forEach(function (scheme) {
+      colorSelect.append(`<option value="${scheme}">${scheme}</option>`);
+    });
+    colorSelect.on("change", function () {
+      const newColor = $(this).val();
+      $("#list-cloud a").each(function () {
+        const $parentDiv = $(this).parent();
+        const sizeClass = $parentDiv.attr("class").split(" ")[1];
+        $parentDiv.attr("class", `ffolder ${sizeClass} ${newColor}`);
+      });
+    });
+  });
+
+  // background blue
+  $(() => {
+    const elementsToBlur = [
+      ".archive",
+      ".draggable-toc",
+      ".post-content",
+      ".desktop-content",
+      ".desktop-category",
+      ".desktop-tag",
+    ];
+
+    $blurSlider = $("#blur-slider");
+    $blurValue = $("#blur-value");
+
+    function setBlur(value) {
+      $blurValue.text(value);
+      $blurSlider.val(value);
+      elementsToBlur.forEach((selector) => {
+        $(selector).css("backdrop-filter", `blur(${value}px)`);
+      });
+    }
+
+    const defaultBlur = $blurSlider.data("value");
+    setBlur(defaultBlur);
+
+    $blurSlider.on("input", function () {
+      const blurValue = $(this).val();
+      setBlur(blurValue);
     });
   });
 });

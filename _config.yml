@@ -67,3 +67,12 @@ scroll2top:
 
 # layout
 layout: 'tile'
+
+# ffolders
+ffolders:
+  size: 'medium'
+  color: 'pink'
+
+# background blur
+background:
+  blur: "10"  # range 0 - 20
