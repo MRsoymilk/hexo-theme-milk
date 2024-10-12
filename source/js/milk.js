@@ -94,48 +94,6 @@ $(() => {
 
     handleMouseOut();
   });
-  // $(() => {
-  //   const $spriteContainer = $("#sprite-container");
-  //   if (
-  //     $spriteContainer.data("mouse-out-ani") &&
-  //     $spriteContainer.data("mouse-hover-ani") &&
-  //     $spriteContainer.data("mouse-click-ani")
-  //   ) {
-  //     const mouseOutAni = $spriteContainer.data("mouse-out-ani").split(",");
-  //     const mouseHoverAni = $spriteContainer.data("mouse-hover-ani").split(",");
-  //     const mouseClickAni = $spriteContainer.data("mouse-click-ani").split(",");
-
-  //     function handleMouseOut() {
-  //       mouseOutAni.forEach((frame, index) => {
-  //         setTimeout(() => {
-  //           $spriteContainer.css("background-image", `url('${frame}')`);
-  //         }, index * 100);
-  //       });
-  //     }
-
-  //     function handleMouseClick() {
-  //       $(".post-content").animate({ scrollTop: $("#top").offset().top }, 500);
-  //       mouseClickAni.forEach((frame, index) => {
-  //         setTimeout(() => {
-  //           $spriteContainer.css("background-image", `url('${frame}')`);
-  //         }, index * 100);
-  //       });
-  //     }
-
-  //     function handleMouseOver() {
-  //       mouseHoverAni.forEach((frame, index) => {
-  //         setTimeout(() => {
-  //           $spriteContainer.css("background-image", `url('${frame}')`);
-  //         }, index * 100);
-  //       });
-  //     }
-
-  //     $spriteContainer.click(handleMouseClick);
-  //     $spriteContainer.mouseover(handleMouseOver);
-  //     $spriteContainer.mouseout(handleMouseOut);
-  //     handleMouseOut();
-  //   }
-  // });
 
   // toc style
   if (document.getElementById("post-content")) {
