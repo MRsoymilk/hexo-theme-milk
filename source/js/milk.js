@@ -38,14 +38,15 @@ $(() => {
   $(() => {
     const $sprite = $("#sprite-container");
     const $canvas = $("#sprite-canvas");
-    const ctx = $canvas[0].getContext("2d");
+    if($canvas.length <= 0) {
+      return;
+    }
 
+    const ctx = $canvas[0].getContext("2d");
     const mouseOutAni = $sprite.data("mouse-out-ani").split(",");
     const mouseHoverAni = $sprite.data("mouse-hover-ani").split(",");
     const mouseClickAni = $sprite.data("mouse-click-ani").split(",");
-    console.log(mouseOutAni);
-    console.log(mouseHoverAni);
-    console.log(mouseClickAni);
+
     function drawFrame(imageSrc) {
       const img = new Image();
       img.src = imageSrc;
@@ -338,7 +339,7 @@ $(() => {
       }
     });
 
-    // change img path as http://host:port/img.png to http://host:port/path/to/your/image/file
+    // change img path as http://host:port/img.type to http://host:port/path/to/your/image/file
     $(".desktop-content ul li").each(function () {
       var postSourceHref = $(this)
         .find("#post-source li:last-child a")
@@ -491,7 +492,23 @@ $(() => {
       windowB.html(contentA);
     }
 
+    const svgFloating = `<svg style="fill: currentColor;" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M126.286 364.304v423.964a109.607 109.607 0 0 0 109.446 109.446h423.964a109.607 109.607 0 0 0 109.447-109.446V364.304a109.607 109.607 0 0 0-109.447-109.447H235.732a109.607 109.607 0 0 0-109.446 109.447z m64.285 42.428a87.75 87.75 0 0 1 87.59-87.59h339.107a87.75 87.75 0 0 1 87.59 87.59V745.84a87.75 87.75 0 0 1-87.59 87.59H278.16a87.75 87.75 0 0 1-87.59-87.59z" /><path d="M825.554 732.982V260A61.875 61.875 0 0 0 764 198.446H287a36.16 36.16 0 0 1 4.018-72.16H764A134.679 134.679 0 0 1 897.714 260v472.982a36.16 36.16 0 1 1-72.16 0z" /></svg>`;
+    const svgStack = `<svg style="fill: currentColor;" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M170.666667 341.333333h426.666666a85.333333 85.333333 0 0 1 85.333334 85.333334v426.666666a85.333333 85.333333 0 0 1-85.333334 85.333334H170.666667a85.333333 85.333333 0 0 1-85.333334-85.333334V426.666667a85.333333 85.333333 0 0 1 85.333334-85.333334z m0 85.333334v426.666666h426.666666V426.666667H170.666667z m554.666666 384V341.333333a42.666667 42.666667 0 0 0-42.666666-42.666666H213.333333a85.333333 85.333333 0 0 1 85.333334-85.333334h426.666666a85.333333 85.333333 0 0 1 85.333334 85.333334v426.666666a85.333333 85.333333 0 0 1-85.333334 85.333334z m128-128V213.333333a42.666667 42.666667 0 0 0-42.666666-42.666666H341.333333a85.333333 85.333333 0 0 1 85.333334-85.333334h426.666666a85.333333 85.333333 0 0 1 85.333334 85.333334v426.666666a85.333333 85.333333 0 0 1-85.333334 85.333334z" /></svg>`;
+    const svgTile = `<svg style="fill: currentColor;" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M902.4 461.226667H121.6a75.093333 75.093333 0 0 1-75.093333-74.666667V167.68a74.666667 74.666667 0 0 1 75.093333-74.666667h780.8a74.666667 74.666667 0 0 1 74.666667 74.666667V388.266667a74.666667 74.666667 0 0 1-74.666667 72.96zM121.6 155.306667a11.093333 11.093333 0 0 0-11.093333 10.666666v220.586667a11.093333 11.093333 0 0 0 11.093333 10.666667h780.8a10.666667 10.666667 0 0 0 10.666667-10.666667V167.68a10.666667 10.666667 0 0 0-10.666667-10.666667l-780.8-1.706666zM385.706667 933.12H121.6a74.666667 74.666667 0 0 1-75.093333-74.666667v-221.44a75.093333 75.093333 0 0 1 75.093333-74.666666h264.106667a75.093333 75.093333 0 0 1 75.093333 74.666666v221.013334a74.666667 74.666667 0 0 1-75.093333 75.093333z m-264.106667-306.346667a11.093333 11.093333 0 0 0-11.093333 10.666667v221.013333a11.093333 11.093333 0 0 0 11.093333 10.666667h264.106667a11.093333 11.093333 0 0 0 11.093333-10.666667v-221.44a11.093333 11.093333 0 0 0-11.093333-10.666666l-264.106667 0.426666zM902.4 933.12h-264.533333a74.666667 74.666667 0 0 1-74.666667-74.666667v-221.44a75.093333 75.093333 0 0 1 74.666667-74.666666h264.533333a74.666667 74.666667 0 0 1 74.666667 74.666666v221.013334a74.709333 74.709333 0 0 1-74.666667 75.093333z m-264.533333-306.346667a10.666667 10.666667 0 0 0-10.666667 10.666667v221.013333a10.666667 10.666667 0 0 0 10.666667 10.666667h264.533333a10.666667 10.666667 0 0 0 10.666667-10.666667v-221.44a10.666667 10.666667 0 0 0-10.666667-10.666666l-264.533333 0.426666z" /></svg>`;
+    const $icon = $("#layout-show .show-icon");
+    const $text = $("#layout-show .show-text");
+
     function setLayout(next) {
+      if(next == 'tile') {
+        $icon.html(svgTile);
+      }
+      else if(next == 'floating') {
+        $icon.html(svgFloating);
+      }
+      else if(next == 'stack') {
+        $icon.html(svgStack);
+      }
+      $text.text(next);
       $("#layout").removeClass().removeAttr("style");
       $("#w-content").removeClass().removeAttr("style").addClass("window");
       $("#w-tag").removeClass().removeAttr("style").addClass("window");
@@ -595,7 +612,6 @@ $(() => {
       var currentLayout = $(this).data("layout");
       var next = layouts[(1 + layouts.indexOf(currentLayout)) % layouts.length];
       $(this).data("layout", next);
-      $("#layout-show").text(next);
       setLayout(next);
     });
   });

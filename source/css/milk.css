@@ -68,6 +68,19 @@
   position: absolute;
   right: 5%;
 }
+.milk .milk-header .nav-layout #layout-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.milk .milk-header .nav-layout .show-icon {
+  height: 30px;
+  width: 30px;
+}
+.milk .milk-header .nav-layout .show-text {
+  line-height: 1;
+  font-size: 20px;
+}
 .milk .milk-header .nav-access {
   white-space: nowrap;
   position: absolute;

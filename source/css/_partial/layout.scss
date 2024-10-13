@@ -4,7 +4,7 @@
   height: 100%;
   .milk-header {
     width: 100%;
-    height: 50px;
+    height: $header_height;
     overflow: hidden;
     .header-nav {
       display: block;
@@ -68,6 +68,19 @@
       white-space: nowrap;
       position: absolute;
       right: 5%;
+      #layout-show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .show-icon {
+        height: 30px;
+        width: 30px;
+      }
+      .show-text {
+        line-height: 1;
+        font-size: 20px;
+      }
     }
     .nav-access {
       white-space: nowrap;
