@@ -38,7 +38,7 @@ $(() => {
   $(() => {
     const $sprite = $("#sprite-container");
     const $canvas = $("#sprite-canvas");
-    if($canvas.length <= 0) {
+    if ($canvas.length <= 0) {
       return;
     }
 
@@ -222,21 +222,9 @@ $(() => {
       var m = myDate.getMinutes(); // minutes(0-59)
       var s = myDate.getSeconds(); // seconds
 
-      $("#date").html(
-        year +
-          "-" +
-          mon +
-          "-" +
-          date +
-          " " +
-          weeks[_week] +
-          " " +
-          h +
-          ":" +
-          m +
-          ":" +
-          s
-      );
+      $("#date-ymd").html(year + "-" + mon + "-" + date);
+      $("#date-week").html(weeks[_week]);
+      $("#date-time").html(h + ":" + m + ":" + s);
     }, 1000);
   });
 
@@ -499,13 +487,11 @@ $(() => {
     const $text = $("#layout-show .show-text");
 
     function setLayout(next) {
-      if(next == 'tile') {
+      if (next == "tile") {
         $icon.html(svgTile);
-      }
-      else if(next == 'floating') {
+      } else if (next == "floating") {
         $icon.html(svgFloating);
-      }
-      else if(next == 'stack') {
+      } else if (next == "stack") {
         $icon.html(svgStack);
       }
       $text.text(next);
@@ -676,6 +662,23 @@ $(() => {
     $blurSlider.on("input", function () {
       const blurValue = $(this).val();
       setBlur(blurValue);
+    });
+  });
+
+  // font
+  $(() => {
+    var font = $("#font-check").data("check");
+    if (!font) {
+      $("#font-check").prop("checked", false);
+    } else {
+      $("#font-check").prop("checked", true);
+    }
+    $("#font-check").change(function () {
+      if ($(this).is(":checked")) {
+        $("body").css("font-family", "custom-font");
+      } else {
+        $("body").css("font-family", "sans-serif");
+      }
     });
   });
 });

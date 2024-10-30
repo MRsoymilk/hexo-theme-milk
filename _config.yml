@@ -76,3 +76,7 @@ ffolders:
 # background blur
 background:
   blur: "10"  # range 0 - 20
+
+# font
+font:
+  fun.ttf

@@ -13,8 +13,9 @@
     <%# date %>
     <% if (theme.date) { %>
       <span class="nav-date">
-        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-        <span id="date"></span>
+        <div id="date-ymd"></div>
+        <div id="date-week"></div>
+        <div id="date-time"></div>
       </span>
     <% } %>
     <%# system info %>
@@ -68,6 +69,10 @@
             <span id="blur-value"><%= theme.background.blur %></span> px
           </label>
           <input type="range" id="blur-slider" min="0" max="20" data-value='<%= theme.background.blur %>'>
+        </div>
+        <div>
+          <label for="font-enable">font</label>
+          <input type="checkbox" id="font-check" name="font-check" data-check="<%= theme.font %>">
         </div>
       </div>
     </span>

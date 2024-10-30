@@ -39,6 +39,7 @@
       max-width: $header_date_max_width;
       left: $header_menu_max_width;
       height: inherit;
+      text-align: center;
       // Hide scrollbars
       & {
         -ms-overflow-style: none; // IE and Edge
@@ -46,6 +47,15 @@
       }
       &::-webkit-scrollbar {
         display: none; // Webkit browsers
+      }
+      #date-ymd {
+        font-size: 15px;
+      }
+      #date-week {
+        font-size: 15px;
+      }
+      #date-time {
+        font-size: 15px;
       }
     }
     .nav-system {
