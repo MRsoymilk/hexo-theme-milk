@@ -7,18 +7,21 @@
     height: $header_height;
     overflow: hidden;
     .header-nav {
-      display: block;
+      display: flex;
       width: 100%;
-      height: inherit;
+      height: 100%;
     }
     .nav-menu {
-      display: inline-block;
+      display: flex;
+      gap: 10px;
+      align-items: center;
       overflow: auto;
       white-space: nowrap;
       max-width: $header_menu_max_width;
       height: inherit;
-      li {
-        display: inline-block;
+      .menu-item {
+        height: inherit;
+        align-content: center;
       }
       a {
         text-decoration: none;
@@ -33,6 +36,9 @@
       }
     }
     .nav-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       overflow: auto;
       white-space: nowrap;
       position: absolute;

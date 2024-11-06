@@ -2,35 +2,35 @@
 <% if (theme.menu) { %>
   <nav class="header-nav">
     <%# menu %> 
-    <ul class="nav-menu">
+    <div class="nav-menu">
       <% for( var _menu in theme.menu) { %>
-        <li id="<%- _menu %>">
+        <div id="<%- _menu %>" class="menu-item">
           <i class="<%- theme.menu[_menu].icon %>" aria-hidden="true"></i>
           <a href="<%- url_for(theme.menu[_menu].path) %> "><%- _menu %></a>
-        </li>
+        </div>
       <% } %>
-    </ul>
+    </div>
     <%# date %>
     <% if (theme.date) { %>
-      <span class="nav-date">
+      <div class="nav-date">
         <div id="date-ymd"></div>
         <div id="date-week"></div>
         <div id="date-time"></div>
-      </span>
+      </div>
     <% } %>
     <%# system info %>
     <% if(theme.system){ %>
-      <span class="nav-system" id="nav-system"></span>
+      <div class="nav-system" id="nav-system"></div>
     <% } %>
     <%# layout %>
-    <span class="nav-layout" id="nav-layout" data-layout="<%= theme.layout %>">
+    <div class="nav-layout" id="nav-layout" data-layout="<%= theme.layout %>">
       <div id="layout-show">
         <div class="show-icon"></div>
         <div class="show-text"></div>
       </div>
-    </span>
+    </div>
     <%# more %>
-    <span class="nav-access">
+    <div class="nav-access">
       <i class="fas fa-toggle-off" id="nav-access"></i>
       <div class="dropdown-content" id="dropdown-content">
         <ul class="social">
@@ -75,6 +75,6 @@
           <input type="checkbox" id="font-check" name="font-check" data-check="<%= theme.font %>">
         </div>
       </div>
-    </span>
+    </div>
   </nav>
 <% } %>

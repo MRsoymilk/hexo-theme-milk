@@ -153,12 +153,14 @@ $(() => {
   // nav-menu highlight
   $(() => {
     var title = document.title;
-    if (title[0] == "[" && title[title.length - 1] == "]") {
-      document.getElementById("Home").className += "active";
-    } else if (title.search("Archives") == 0) {
-      document.getElementById("Archives").className += "active";
-    } else if (title.search("about") == 0) {
-      document.getElementById("About").className += "active";
+    if (title.startsWith("[") && title.endsWith("]")) {
+      $("#Home").addClass("active");
+    } else if (title.startsWith("Archives")) {
+      $("#Archives").addClass("active");
+    } else if (title.startsWith("about")) {
+      $("#About").addClass("active");
+    } else if (title.startsWith("tags")) {
+      $("#Tags").addClass("active");
     }
   });
 
