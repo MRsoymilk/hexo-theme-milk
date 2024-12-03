@@ -1,4 +1,15 @@
 $(() => {
+  const KEY_LAYOUT = "layout";
+  // setting
+  function setSettings(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function getSettings(key) {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  }
+
   // gitee usage
   $(() => {
     if ($(location).attr("pathname").slice(0, 5) == "/blog") {
@@ -140,9 +151,9 @@ $(() => {
       $(".toc-text").each(function () {
         const text = $(this).text().trim();
         if (text.includes(target)) {
-          // Remove 'liactive' from all .toc-item elements
+          // Remove 'li active' from all .toc-item elements
           $(".toc-item").removeClass("active");
-          // Add 'liactive' to the matched li
+          // Add 'li active' to the matched li
           $(this).closest("li").addClass("active");
           return false; // Exit loop after finding the first match
         }
@@ -497,6 +508,7 @@ $(() => {
         $icon.html(svgStack);
       }
       $text.text(next);
+      setSettings(KEY_LAYOUT, next);
       $("#layout").removeClass().removeAttr("style");
       $("#w-content").removeClass().removeAttr("style").addClass("window");
       $("#w-tag").removeClass().removeAttr("style").addClass("window");
@@ -594,8 +606,13 @@ $(() => {
     }
 
     var layouts = ["tile", "floating", "stack"];
-    const layout = $("#nav-layout").data("layout");
-    setLayout(layout);
+    var cachedLayout = getSettings(KEY_LAYOUT);
+    if (cachedLayout == null) {
+      const layout = $("#nav-layout").data("layout");
+      setLayout(layout);
+    } else {
+      setLayout(cachedLayout);
+    }
     $("#nav-layout").on("click", function () {
       var currentLayout = $(this).data("layout");
       var next = layouts[(1 + layouts.indexOf(currentLayout)) % layouts.length];
@@ -636,7 +653,7 @@ $(() => {
     });
   });
 
-  // background blue
+  // background blur
   $(() => {
     const elementsToBlur = [
       ".archive",
