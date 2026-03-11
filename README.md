@@ -45,6 +45,14 @@ highlight: monokai-sublime
 syntax_highlighter: # empty
 ```
 
+4. 图片渲染问题
+
+修改`_config.yml`
+
+```yaml
+post_asset_folder: true
+```
+
 **需要清除缓存，否则无法看到有效样式**
 
 ```bash
