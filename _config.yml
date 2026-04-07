@@ -57,7 +57,7 @@ valine:
 changyan:
   status: true
   appid: "cyuGH4lBk"
-  appkey: "ae32d85e4ca99348209aedfd3ae01478"
+  conf: "prod_87d0328c17d3752e3610edeceb7c1fbc"
 
 # scroll to top
 scroll2top:
