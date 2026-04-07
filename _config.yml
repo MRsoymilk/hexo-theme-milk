@@ -47,12 +47,6 @@ livere:
   status: true
   livere_data_uid: "MTAyMC80NjA4MS8yMjU5Mg=="
 
-# Valine
-valine:
-  status: true
-  appid: "5bHFwYPW2iHWCiV7WmNRSenk-gzGzoHsz"
-  appkey: "2q4UgVDTmeJf9Phe8VbnNKyC"
-
 # ChangYan
 changyan:
   status: true
